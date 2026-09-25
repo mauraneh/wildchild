@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shop — WILD CHILD</title>
+  <meta name="description" content="Official WILD CHILD merch: tees, hoodies, caps, mugs and recovery essentials. Printed on demand, shipped to your door.">
+  <meta name="theme-color" content="#0f0e17">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html" aria-label="Wild Child home">
+        <img src="assets/logo.svg" alt="" width="36" height="36"><span>WILD CHILD</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html#story">Story</a>
+        <a href="index.html#format">The show</a>
+        <a href="index.html#episodes">Episodes</a>
+        <a href="index.html#hosts">Hosts</a>
+        <a href="shop.html" aria-current="page">Shop</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" data-open-cart aria-label="Open bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-count" data-count="0">0</span>
+        </button>
+        <button class="icon-btn menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <a href="index.html#story">Story</a>
+    <a href="index.html#format">The show</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="shop.html">Shop</a>
+    <a class="btn btn-primary" data-listen="spotify" href="#">▶ Listen now</a>
+  </nav>
+
+  <main id="main">
+    <section class="shop-hero">
+      <div class="container">
+        <span class="eyebrow">Official merch · Drop 01</span>
+        <h1 style="font-size:clamp(2.8rem,13vw,6rem)">The <span class="grad-text">Recovery</span> Drop</h1>
+        <p class="lead">Made for the Sunday couch, the Saturday run and everything in between. Every piece is printed on demand — no waste, no warehouse, just for you.</p>
+        <div class="perks">
+          <div class="perk"><b>✦</b> Printed on demand</div>
+          <div class="perk"><b>✦</b> Ships in 3–7 days</div>
+          <div class="perk"><b>✦</b> Free shipping 60€+</div>
+          <div class="perk"><b>✦</b> Secure checkout</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px">
+      <div class="container">
+        <div class="filters" role="toolbar" aria-label="Filter products">
+          <button class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter="apparel" aria-pressed="false">Apparel</button>
+          <button class="chip" data-filter="accessories" aria-pressed="false">Accessories</button>
+          <button class="chip" data-filter="home" aria-pressed="false">Home</button>
+        </div>
+        <div class="products" id="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>From our mic<br>to your door</h2>
+        </div>
+        <div class="how">
+          <div class="how-step"><b class="grad-text">01</b>You order your piece here, secure payment by card, Apple Pay or Google Pay.</div>
+          <div class="how-step"><b class="grad-text">02</b>It's printed just for you by our production partner, with the Wild Child label.</div>
+          <div class="how-step"><b class="grad-text">03</b>It ships straight to your door in 3–7 days, with tracking. Wear. Recover. Repeat.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><img src="assets/logo.svg" alt="" width="36" height="36"><span style="color:var(--cream)">WILD CHILD</span></a>
+          <p style="margin-top:12px">The Sunday Recovery Show.<br>Work hard. Play harder. Recover smarter.</p>
+        </div>
+        <div>
+          <h4>Listen</h4>
+          <ul>
+            <li><a data-listen="spotify" href="#">Spotify</a></li>
+            <li><a data-listen="apple" href="#">Apple Podcasts</a></li>
+            <li><a data-listen="youtube" href="#">YouTube</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul>
+            <li><a data-social="instagram" href="#">Instagram</a></li>
+            <li><a data-social="tiktok" href="#">TikTok</a></li>
+            <li><a data-social="youtube" href="#">YouTube</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul>
+            <li><a data-email href="#">Contact</a></li>
+            <li><a href="index.html#newsletter">Newsletter</a></li>
+            <li><a href="index.html">Podcast</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> Wild Child. Drink responsibly — hydrate irresponsibly.</span>
+        <span>Made on a Sunday ☀️</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
