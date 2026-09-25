@@ -1,0 +1,53 @@
+<section class="shop-hero">
+  <div class="container">
+    <span class="eyebrow">Official merch · Drop 01</span>
+    <h1 style="font-size: clamp(2.8rem, 13vw, 6rem)">The <span class="grad-text">Recovery</span> Drop</h1>
+    <p class="lead">Made for the Sunday couch, the Saturday run and everything in between. Every piece is printed on demand — no waste, no warehouse, just for you.</p>
+    <div class="perks">
+      <div class="perk"><b>✦</b> Printed on demand</div>
+      <div class="perk"><b>✦</b> Ships in 3–7 days</div>
+      <div class="perk"><b>✦</b> Free shipping {{ freeShippingFrom | money }}+</div>
+      <div class="perk"><b>✦</b> Secure checkout</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 16px">
+  <div class="container">
+    <div class="filters" role="toolbar" aria-label="Filter products">
+      @for (f of filters; track f.value) {
+        <button class="chip" type="button" [attr.aria-pressed]="filter() === f.value" (click)="filter.set(f.value)">{{ f.label }}</button>
+      }
+    </div>
+    <div class="products">
+      @for (p of products(); track p.id) {
+        <button class="product" type="button" [attr.aria-label]="p.name + ', ' + (p.price | money)" (click)="ui.openProduct(p)">
+          <div class="product-media">
+            <app-mockup [product]="p" />
+            @if (p.badge) {
+              <span class="badge">{{ p.badge }}</span>
+            }
+          </div>
+          <div class="product-body">
+            <span class="product-name">{{ p.name }}</span>
+            <span class="product-price">{{ p.price | money }}</span>
+          </div>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From our mic<br />to your door</h2>
+    </div>
+    <div class="how">
+      <div class="how-step"><b class="grad-text">01</b>You order your piece here, secure payment by card, Apple Pay or Google Pay.</div>
+      <div class="how-step"><b class="grad-text">02</b>It's printed just for you by our production partner, with the Wild Child label.</div>
+      <div class="how-step"><b class="grad-text">03</b>It ships straight to your door in 3–7 days, with tracking. Wear. Recover. Repeat.</div>
+    </div>
+  </div>
+</section>

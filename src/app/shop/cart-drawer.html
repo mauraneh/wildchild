@@ -1,0 +1,55 @@
+<aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"
+  [class.open]="ui.cartOpen()" [attr.aria-hidden]="!ui.cartOpen()" [attr.inert]="ui.cartOpen() ? null : ''">
+  <div class="drawer-head">
+    <h2 id="cart-title">Your bag</h2>
+    <button #closeBtn class="icon-btn" type="button" aria-label="Close bag" (click)="ui.closeAll()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+  </div>
+
+  <div class="drawer-body">
+    @if (cart.lines().length) {
+      <div class="ship-bar">
+        @if (cart.freeShippingLeft() > 0) {
+          You're <b>{{ cart.freeShippingLeft() | money }}</b> away from free shipping
+        } @else {
+          <b class="lime">Free shipping unlocked 🎉</b>
+        }
+        <div class="track"><div class="fill" [style.width.%]="cart.freeShippingProgress()"></div></div>
+      </div>
+
+      @for (line of cart.lines(); track line.id + line.variant; let i = $index) {
+        <div class="cart-item">
+          <div class="thumb"><app-mockup [product]="line.product" /></div>
+          <div>
+            <div class="name">{{ line.product.name }}</div>
+            <div class="variant">{{ line.variant }}</div>
+            <div class="qty">
+              <button type="button" aria-label="Decrease quantity" (click)="cart.setQty(i, line.qty - 1)">−</button>
+              <span>{{ line.qty }}</span>
+              <button type="button" aria-label="Increase quantity" (click)="cart.setQty(i, line.qty + 1)">+</button>
+            </div>
+          </div>
+          <div class="price">
+            {{ line.product.price * line.qty | money }}<br />
+            <button class="remove" type="button" (click)="cart.setQty(i, 0)">Remove</button>
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="cart-empty">
+        <p>Your bag is emptier than your Sunday fridge.</p>
+        <a class="btn btn-primary" routerLink="/shop" (click)="ui.closeAll()">Shop the drop</a>
+      </div>
+    }
+  </div>
+
+  @if (cart.lines().length) {
+    <div class="drawer-foot">
+      <div class="total-row"><span>Subtotal</span><span>{{ cart.total() | money }}</span></div>
+      <p class="fine">Shipping & taxes calculated at checkout. Printed on demand, ships in 3–7 days.</p>
+      <button class="btn btn-grad btn-block" type="button" (click)="checkout()">Checkout →</button>
+      <p class="demo-note" role="status">{{ demoNote() }}</p>
+    </div>
+  }
+</aside>

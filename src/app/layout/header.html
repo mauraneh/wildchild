@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="container">
+    <a class="logo" routerLink="/" aria-label="Wild Child home" (click)="ui.menuOpen.set(false)">
+      <img src="logo.svg" alt="" width="36" height="36" /><span>{{ site.brand.name }}</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      @for (l of links; track l.fragment) {
+        <a routerLink="/" [fragment]="l.fragment">{{ l.label }}</a>
+      }
+      <a routerLink="/shop" routerLinkActive #rla="routerLinkActive" [attr.aria-current]="rla.isActive ? 'page' : null">Shop</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" type="button" aria-label="Open bag" (click)="ui.menuOpen.set(false); ui.openCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z" /><path d="M9 7a3 3 0 0 1 6 0" /></svg>
+        <span class="cart-count" [attr.data-count]="cart.count()">{{ cart.count() }}</span>
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-label="Menu" aria-controls="mobile-menu"
+        [attr.aria-expanded]="ui.menuOpen()" (click)="ui.menuOpen.set(!ui.menuOpen())">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10" /></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" [class.open]="ui.menuOpen()" [attr.inert]="ui.menuOpen() ? null : ''">
+  @for (l of links; track l.fragment) {
+    <a routerLink="/" [fragment]="l.fragment" (click)="ui.menuOpen.set(false)">{{ l.label }}</a>
+  }
+  <a routerLink="/shop" (click)="ui.menuOpen.set(false)">Shop</a>
+  <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">▶ Listen now</a>
+</nav>

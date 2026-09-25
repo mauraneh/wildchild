@@ -1,58 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>WILD CHILD — The Sunday Recovery Show</title>
-  <meta name="description" content="WILD CHILD is the Sunday podcast about sport, dating and hangovers — and how to balance it all after a week at work. Work hard. Play harder. Recover smarter.">
-  <meta name="theme-color" content="#0f0e17">
-  <meta property="og:title" content="WILD CHILD — The Sunday Recovery Show">
-  <meta property="og:description" content="Sport, dating, hangovers & balance. New episode every Sunday.">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="container">
-      <a class="logo" href="index.html" aria-label="Wild Child home">
-        <img src="assets/logo.svg" alt="" width="36" height="36"><span>WILD CHILD</span>
-      </a>
-      <nav class="nav" aria-label="Main">
-        <a href="#story">Story</a>
-        <a href="#format">The show</a>
-        <a href="#episodes">Episodes</a>
-        <a href="#hosts">Hosts</a>
-        <a href="shop.html">Shop</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" data-open-cart aria-label="Open bag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-          <span class="cart-count" data-count="0">0</span>
-        </button>
-        <button class="icon-btn menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
-    <a href="#story">Story</a>
-    <a href="#format">The show</a>
-    <a href="#episodes">Episodes</a>
-    <a href="#hosts">Hosts</a>
-    <a href="shop.html">Shop</a>
-    <a class="btn btn-primary" data-listen="spotify" href="#">▶ Listen now</a>
-  </nav>
-
-  <main id="main">
-    <!-- HERO -->
+<!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -61,8 +7,8 @@
           <p class="show-name">The Sunday Recovery Show</p>
           <p class="lead">Five days of work. One wild weekend of sport, dates and drinks. And then… Sunday. We debrief it all — the PRs, the ghostings, the hangovers — and figure out how to keep the balance.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" data-listen="spotify" href="#">▶ Listen on Spotify</a>
-            <a class="btn btn-ghost" data-listen="apple" href="#">Apple Podcasts</a>
+            <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">▶ Listen on Spotify</a>
+            <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
           </div>
         </div>
 
@@ -154,12 +100,27 @@
           <span class="eyebrow">Latest episodes</span>
           <h2>Press play,<br>drink water</h2>
         </div>
-        <div class="episodes" id="episode-list"></div>
+        <div class="episodes">
+          @for (e of site.episodes; track e.n) {
+            <article class="episode">
+              <div class="episode-num" aria-hidden="true">{{ e.n < 10 ? '0' + e.n : e.n }}</div>
+              <div>
+                <div class="episode-meta">
+                  <span>EP {{ e.n }}</span><span>{{ e.date }}</span><span>{{ e.length }}</span>
+                  @for (t of e.tags; track t) {<span class="tag">#{{ t }}</span>}
+                </div>
+                <h3>{{ e.title }}</h3>
+                <p>{{ e.desc }}</p>
+              </div>
+              <a class="btn btn-ghost play" [href]="site.listen.spotify" target="_blank" rel="noopener" [attr.aria-label]="'Listen to episode ' + e.n">▶ Listen</a>
+            </article>
+          }
+        </div>
         <div class="platforms">
-          <a class="btn btn-ghost" data-listen="spotify" href="#">Spotify</a>
-          <a class="btn btn-ghost" data-listen="apple" href="#">Apple Podcasts</a>
-          <a class="btn btn-ghost" data-listen="youtube" href="#">YouTube</a>
-          <a class="btn btn-ghost" data-listen="deezer" href="#">Deezer</a>
+          <a class="btn btn-ghost" [href]="site.listen.spotify" target="_blank" rel="noopener">Spotify</a>
+          <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
+          <a class="btn btn-ghost" [href]="site.listen.youtube" target="_blank" rel="noopener">YouTube</a>
+          <a class="btn btn-ghost" [href]="site.listen.deezer" target="_blank" rel="noopener">Deezer</a>
         </div>
       </div>
     </section>
@@ -202,12 +163,12 @@
             <span class="eyebrow" style="color:#fff">The merch</span>
             <h2>Wear the<br>recovery</h2>
             <p>Tees, hoodies, caps and hangover essentials. Printed on demand, just for you.</p>
-            <a class="btn btn-primary" href="shop.html">Shop the drop →</a>
+            <a class="btn btn-primary" routerLink="/shop">Shop the drop →</a>
           </div>
           <div class="mini-products" aria-hidden="true">
-            <div data-mini="sore-sorry-tee"></div>
-            <div data-mini="recovery-hoodie"></div>
-            <div data-mini="wild-child-cap"></div>
+            @for (p of teaser; track p.id) {
+              <div><app-mockup [product]="p" /></div>
+            }
           </div>
         </div>
       </div>
@@ -219,56 +180,11 @@
         <span class="eyebrow">The Sunday letter</span>
         <h2>Join the<br><span class="grad-text">recovery club</span></h2>
         <p class="lead">One email every Sunday: the new episode, our Monday Reset tip and early access to merch drops.</p>
-        <form class="form-row" data-newsletter novalidate>
+        <form class="form-row" novalidate (submit)="subscribe($event, email)">
           <label class="sr-only" for="nl-email">Email address</label>
-          <input class="input" id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+          <input #email class="input" id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
           <button class="btn btn-grad" type="submit">I'm in</button>
         </form>
-        <p class="form-msg" role="status"></p>
+        <p class="form-msg" role="status">{{ newsletterMsg() }}</p>
       </div>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a class="logo" href="index.html"><img src="assets/logo.svg" alt="" width="36" height="36"><span style="color:var(--cream)">WILD CHILD</span></a>
-          <p style="margin-top:12px">The Sunday Recovery Show.<br>Work hard. Play harder. Recover smarter.</p>
-        </div>
-        <div>
-          <h4>Listen</h4>
-          <ul>
-            <li><a data-listen="spotify" href="#">Spotify</a></li>
-            <li><a data-listen="apple" href="#">Apple Podcasts</a></li>
-            <li><a data-listen="youtube" href="#">YouTube</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Follow</h4>
-          <ul>
-            <li><a data-social="instagram" href="#">Instagram</a></li>
-            <li><a data-social="tiktok" href="#">TikTok</a></li>
-            <li><a data-social="youtube" href="#">YouTube</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>More</h4>
-          <ul>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="#newsletter">Newsletter</a></li>
-            <li><a data-email href="#">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year></span> Wild Child. Drink responsibly — hydrate irresponsibly.</span>
-        <span>Made on a Sunday ☀️</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>

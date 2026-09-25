@@ -1,9 +1,47 @@
 /*
  * WILD CHILD — site configuration
- * Everything you need to edit (brand, links, shop, products) lives here.
+ * Everything you need to edit (brand, links, shop, products, episodes) lives here.
  * See SHOP_SETUP.md for how to connect the shop to Shopify + Printful.
  */
-window.WC_CONFIG = {
+
+export type ProductType = 'tee' | 'hoodie' | 'cap' | 'mug' | 'bottle' | 'tote';
+export type Category = 'apparel' | 'accessories' | 'home';
+
+export interface Product {
+  id: string;
+  name: string;
+  type: ProductType;
+  category: Category;
+  price: number;
+  color: string;
+  ink: string;
+  print: string;
+  badge: string;
+  description: string;
+  /** size/variant label -> Shopify variant ID (empty in demo mode) */
+  variants: Record<string, string>;
+}
+
+export interface Episode {
+  n: number;
+  title: string;
+  desc: string;
+  length: string;
+  date: string;
+  tags: string[];
+}
+
+export interface SiteConfig {
+  brand: { name: string; show: string; tagline: string; email: string };
+  listen: Record<'spotify' | 'apple' | 'youtube' | 'deezer', string>;
+  social: Record<'instagram' | 'tiktok' | 'youtube', string>;
+  newsletterEndpoint: string;
+  shop: { domain: string; currency: string; locale: string; freeShippingFrom: number };
+  products: Product[];
+  episodes: Episode[];
+}
+
+export const SITE: SiteConfig = {
   brand: {
     name: "WILD CHILD",
     show: "The Sunday Recovery Show",

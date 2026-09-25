@@ -1,0 +1,11 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<app-header />
+<main id="main">
+  <router-outlet />
+</main>
+<app-footer />
+
+<div class="overlay" [class.open]="ui.overlayOpen()" (click)="ui.closeAll()"></div>
+<app-cart-drawer />
+<app-product-modal />
+<div class="toast" role="status" aria-live="polite" [class.show]="ui.toastVisible()">{{ ui.toastText() }}</div>

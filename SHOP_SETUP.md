@@ -42,7 +42,7 @@ times, no real branding, inconsistent quality — bad for a young community bran
 5. Get each **variant ID** from Shopify:
    Admin → Products → open a product → click a variant → the URL ends with
    `/variants/1234567890` — that number is the variant ID.
-6. Edit **`js/config.js`**:
+6. Edit **`src/app/core/site.config.ts`**:
    ```js
    shop: { domain: "your-store.myshopify.com", currency: "EUR", ... },
    products: [
@@ -65,4 +65,4 @@ mode**: browsing and cart work, checkout just shows a notice.
 - Order one sample of every product before launch — use them for photos and
   for wearing on video episodes.
 - Replace the SVG mockups with real photos/Printful mockups when ready (just
-  swap the `mockup()` output for an `<img>` in `js/main.js`).
+  swap `<app-mockup>` for an `<img>` in the shop templates).

@@ -1,0 +1,29 @@
+<div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="ui.product()?.name"
+  [class.open]="!!ui.product()" [attr.aria-hidden]="!ui.product()" [attr.inert]="ui.product() ? null : ''">
+  <button #closeBtn class="icon-btn modal-close" type="button" aria-label="Close" (click)="ui.closeAll()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+  @if (ui.product(); as p) {
+    <div class="modal-grid">
+      <div class="modal-media"><app-mockup [product]="p" /></div>
+      <div class="modal-info">
+        <span class="eyebrow">{{ p.category }}</span>
+        <h2>{{ p.name }}</h2>
+        <div class="modal-price">{{ p.price | money }}</div>
+        <p>{{ p.description }}</p>
+        <div class="label" id="size-label">{{ sizes().length > 1 ? 'Choose size' : 'Size' }}</div>
+        <div class="sizes" role="radiogroup" aria-labelledby="size-label">
+          @for (s of sizes(); track s) {
+            <button class="size" type="button" role="radio" [attr.aria-checked]="s === size()" (click)="size.set(s)">{{ s }}</button>
+          }
+        </div>
+        <button class="btn btn-primary btn-block" type="button" (click)="add()">Add to bag</button>
+        <div class="details">
+          <span>✦ Printed on demand just for you — zero waste</span>
+          <span>✦ Ships in 3–7 days · Free shipping from {{ freeShippingFrom | money }}</span>
+          <span>✦ 30-day returns on misprints & damaged items</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
