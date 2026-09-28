@@ -31,8 +31,12 @@ Everybody lives the same week.
 **Monday → Friday: the grind.** Alarm, commute, meetings that could have been
 an e-mail. You play the responsible adult and count the hours.
 
-**Friday night → Saturday: the slip-up.** A run to feel virtuous. Then a date.
-Then a drink. Then "one last one". You know how this ends.
+**The house rule.** Gym at 6 am, drinks at 7 pm. We destroy ourselves at the
+gym at dawn so we've "earned" the drinks that night. Flawless logic.
+
+**Friday night → Saturday: the slip-up.** A brutal Saturday session to
+"compensate". Then a date. Then a well-deserved drink. Then "one last one".
+You know how this ends.
 
 **Sunday: the recovery.** Sore legs, pounding head, 14 unread messages and a
 vague sense of shame. And one question: how do we survive Monday?
@@ -56,7 +60,7 @@ loud. Spoiler: we haven't found it.
 
 | Host | Role |
 |---|---|
-| **Maurane** | Same chaos, less energy. Just as much of a mess as Marie, only a bit older and way more tired. Same red flags, but in bed by 11 pm to regret them properly. Official Scoreboard referee, from the couch. |
+| **Maurane** | Same chaos, lazier. Just as much of a mess as Marie, only a bit older and too lazy for anything. Except the gym at 6 am, where she goes all in so she's earned a drink that night. Official Scoreboard referee. |
 | **Marie** | Serial dating & chaos. Three apps, two situationships and a rare talent for turning every date into an episode. Hosts *The Swipe Report*. |
 
 ## Listener questions
@@ -69,7 +73,7 @@ they don't follow themselves.
 
 | Segment | What happens |
 |---|---|
-| **01 · The Scoreboard** | The weekend's sport. Or the truth: we walked to the bakery. |
+| **01 · The Scoreboard** | The week's sport: the 6 am sessions, the PRs, and how many drinks they "earned" us. |
 | **02 · The Swipe Report** | This week's dates, ignored red flags, your DMs read out loud. |
 | **03 · The Damage Report** | The night out, the morning after, hangover rated out of 10. |
 | **04 · The Monday Reset** | One realistic tip for the week: sleep, food, money, headspace. |
@@ -77,6 +81,7 @@ they don't follow themselves.
 ## Taglines
 
 - *Work hard. Go out too much. Regret it a little.*
+- *Gym at 6 am. Drinks at 7 pm.* (FR : *Salle à 6h. Apéro à 19h.*)
 - *Every Sunday. Same headache. New lessons.*
 - *Sore legs. Broken heart. Overdraft.*
 - *Advice we don't follow ourselves.*
