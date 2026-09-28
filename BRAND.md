@@ -61,6 +61,19 @@ their bank account on Monday.
 - **No judgement** — party or no party, sober or not, single or taken.
 - **Useful** — every episode ends with something you can apply this week.
 
+## Hosts
+
+| Host | Role |
+|---|---|
+| **Maurane** | Sport & balance — the Saturday run, the gym, and the impossible mission of being fine on Monday. Runs *The Scoreboard* and *The Monday Reset*. |
+| **Marie** | Serial dating & chaos — three apps, two situationships, and a rare talent for turning every date into an episode. Runs *The Swipe Report*. |
+
+## Listener questions
+
+Listeners send their questions from the website ("Pose ta question"). Every
+Sunday the hosts pick a few and answer them on air — anonymously if the
+listener asked for it.
+
 ## Episode format (≈ 45 min)
 
 | Segment | What happens |

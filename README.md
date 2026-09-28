@@ -11,8 +11,33 @@ hangovers and how to keep it all in balance after a week at work.
 **Angular 22** — standalone components, signals, zoneless change detection,
 new control flow (`@if` / `@for`), lazy-loaded shop route. Mobile-first CSS.
 
+### Languages
+
+The site is in **French (default), Spanish and Portuguese**. Visitors switch with
+the FR / ES / PT buttons (header on desktop, menu on mobile, footer). The first
+visit uses the browser language; the choice is remembered. Share a link in a
+given language with `?lang=es` or `?lang=pt`.
+
+All texts are in `src/app/i18n/fr.ts`, `es.ts` and `pt.ts`. They share one
+TypeScript type, so the build fails if a translation is missing a key. To add
+a language, copy `es.ts`, translate it, and register it in `i18n.service.ts`.
+
+### Listener questions ("Pose ta question")
+
+The home page has a form where listeners send a question for the show (topic,
+question, optional nickname and e-mail, "keep me anonymous", on-air consent,
+anti-spam honeypot).
+
+- **Default (no setup):** the form opens the visitor's mail app with the
+  question pre-filled, addressed to `brand.email`.
+- **Recommended:** create a free form on [Formspree](https://formspree.io)
+  and paste its URL in `questionsEndpoint` in `src/app/core/site.config.ts`.
+  Questions are then sent in one click and land in your inbox (with topic,
+  language and anonymity choice), ready to pick for Sunday's episode.
+
 ```
-src/app/core/site.config.ts   ← edit this: brand, links, episodes, products, Shopify store
+src/app/i18n/                 ← edit this: all texts in FR / ES / PT
+src/app/core/site.config.ts   ← edit this: links, prices, variants, Shopify store
 src/app/core/cart.service.ts  Cart (signals + localStorage) and Shopify checkout link
 src/app/core/ui.service.ts    Menu / cart drawer / product sheet / toast state
 src/app/layout/               Header (+ mobile menu) and footer

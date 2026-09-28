@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Category, SITE } from '../../core/site.config';
 import { UiService } from '../../core/ui.service';
+import { I18nService } from '../../i18n/i18n.service';
 import { Mockup } from '../../shared/mockup.component';
 import { MoneyPipe } from '../../shared/money.pipe';
 
@@ -14,15 +15,15 @@ type Filter = Category | 'all';
 })
 export class Shop {
   protected readonly ui = inject(UiService);
+  protected readonly i18n = inject(I18nService);
   protected readonly freeShippingFrom = SITE.shop.freeShippingFrom;
-  protected readonly filters: { value: Filter; label: string }[] = [
-    { value: 'all', label: 'All' },
-    { value: 'apparel', label: 'Apparel' },
-    { value: 'accessories', label: 'Accessories' },
-    { value: 'home', label: 'Home' },
-  ];
+  protected readonly filters: Filter[] = ['all', 'apparel', 'accessories', 'home'];
   protected readonly filter = signal<Filter>('all');
   protected readonly products = computed(() =>
     SITE.products.filter((p) => this.filter() === 'all' || p.category === this.filter()),
   );
+
+  constructor() {
+    this.i18n.pageTitle.set('shopTitle');
+  }
 }

@@ -1,0 +1,76 @@
+@let t = i18n.t().home.ask;
+<section class="section ask" id="ask">
+  <div class="container ask-grid">
+    <div>
+      <span class="eyebrow">{{ t.eyebrow }}</span>
+      <h2>{{ t.title1 }}<br><span class="grad-text">{{ t.titleAccent }}</span></h2>
+      <p class="lead">{{ t.lead }}</p>
+      <p class="fine">{{ t.privacy }}</p>
+    </div>
+
+    <div class="ask-card">
+      @if (status() === 'sent' || status() === 'mail') {
+        <div class="ask-done" role="status">
+          <div class="ask-done-icon" aria-hidden="true">🎙️</div>
+          <p>{{ status() === 'sent' ? t.thanks : t.mailFallback }}</p>
+          <button class="btn btn-ghost" type="button" (click)="reset()">{{ t.another }}</button>
+        </div>
+      } @else {
+        <form novalidate (submit)="submit($event)">
+          <div class="field">
+            <span class="label" id="ask-topic-label">{{ t.topicLabel }}</span>
+            <div class="topic-chips" role="radiogroup" aria-labelledby="ask-topic-label">
+              @for (tp of topics; track tp) {
+                <button class="chip" type="button" role="radio" [attr.aria-checked]="topic() === tp" (click)="topic.set(tp)">{{ t.topics[tp] }}</button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="ask-question">{{ t.questionLabel }}</label>
+            <textarea id="ask-question" class="input textarea" rows="5" [attr.maxlength]="maxLength" [placeholder]="t.questionPlaceholder"
+              [value]="question()" (input)="question.set(value($event))" [attr.aria-invalid]="problem() === 'tooShort'" required></textarea>
+            <span class="counter" aria-hidden="true">{{ length() }} / {{ maxLength }} {{ t.chars }}</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="ask-name">{{ t.nameLabel }}</label>
+              <input id="ask-name" class="input" type="text" maxlength="60" autocomplete="nickname" [placeholder]="t.namePlaceholder"
+                [value]="name()" (input)="name.set(value($event))">
+            </div>
+            <div class="field">
+              <label class="label" for="ask-email">{{ t.emailLabel }}</label>
+              <input id="ask-email" class="input" type="email" autocomplete="email" [placeholder]="i18n.t().home.newsletter.placeholder"
+                [value]="contact()" (input)="contact.set(value($event))" [attr.aria-invalid]="problem() === 'invalidEmail'">
+            </div>
+          </div>
+
+          <!-- Honeypot: hidden from people, bots fill it in -->
+          <input class="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" [value]="honeypot()" (input)="honeypot.set(value($event))">
+
+          <label class="check">
+            <input type="checkbox" [checked]="anonymous()" (change)="anonymous.set(checked($event))">
+            <span>{{ t.anonymous }}</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" [checked]="consent()" (change)="consent.set(checked($event))" [attr.aria-invalid]="problem() === 'needConsent'">
+            <span>{{ t.consent }}</span>
+          </label>
+
+          <button class="btn btn-grad btn-block" type="submit" [disabled]="status() === 'sending'">
+            {{ status() === 'sending' ? t.sending : t.submit }}
+          </button>
+
+          <p class="form-msg ask-msg" role="status">
+            @if (problem(); as p) {
+              {{ t[p] }}
+            } @else if (status() === 'error') {
+              {{ t.error }} <a [href]="mailtoHref()">{{ email }}</a>
+            }
+          </p>
+        </form>
+      }
+    </div>
+  </div>
+</section>

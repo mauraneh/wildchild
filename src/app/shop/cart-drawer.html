@@ -1,8 +1,9 @@
+@let t = i18n.t();
 <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"
   [class.open]="ui.cartOpen()" [attr.aria-hidden]="!ui.cartOpen()" [attr.inert]="ui.cartOpen() ? null : ''">
   <div class="drawer-head">
-    <h2 id="cart-title">Your bag</h2>
-    <button #closeBtn class="icon-btn" type="button" aria-label="Close bag" (click)="ui.closeAll()">
+    <h2 id="cart-title">{{ t.cart.title }}</h2>
+    <button #closeBtn class="icon-btn" type="button" [attr.aria-label]="t.cart.close" (click)="ui.closeAll()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
     </button>
   </div>
@@ -11,9 +12,9 @@
     @if (cart.lines().length) {
       <div class="ship-bar">
         @if (cart.freeShippingLeft() > 0) {
-          You're <b>{{ cart.freeShippingLeft() | money }}</b> away from free shipping
+          {{ t.cart.shippingLeftBefore }} <b>{{ cart.freeShippingLeft() | money }}</b> {{ t.cart.shippingLeftAfter }}
         } @else {
-          <b class="lime">Free shipping unlocked 🎉</b>
+          <b class="lime">{{ t.cart.shippingFree }}</b>
         }
         <div class="track"><div class="fill" [style.width.%]="cart.freeShippingProgress()"></div></div>
       </div>
@@ -22,34 +23,34 @@
         <div class="cart-item">
           <div class="thumb"><app-mockup [product]="line.product" /></div>
           <div>
-            <div class="name">{{ line.product.name }}</div>
-            <div class="variant">{{ line.variant }}</div>
+            <div class="name">{{ i18n.productName(line.product) }}</div>
+            <div class="variant">{{ i18n.variantLabel(line.variant) }}</div>
             <div class="qty">
-              <button type="button" aria-label="Decrease quantity" (click)="cart.setQty(i, line.qty - 1)">−</button>
+              <button type="button" [attr.aria-label]="t.cart.decrease" (click)="cart.setQty(i, line.qty - 1)">−</button>
               <span>{{ line.qty }}</span>
-              <button type="button" aria-label="Increase quantity" (click)="cart.setQty(i, line.qty + 1)">+</button>
+              <button type="button" [attr.aria-label]="t.cart.increase" (click)="cart.setQty(i, line.qty + 1)">+</button>
             </div>
           </div>
           <div class="price">
             {{ line.product.price * line.qty | money }}<br />
-            <button class="remove" type="button" (click)="cart.setQty(i, 0)">Remove</button>
+            <button class="remove" type="button" (click)="cart.setQty(i, 0)">{{ t.cart.remove }}</button>
           </div>
         </div>
       }
     } @else {
       <div class="cart-empty">
-        <p>Your bag is emptier than your Sunday fridge.</p>
-        <a class="btn btn-primary" routerLink="/shop" (click)="ui.closeAll()">Shop the drop</a>
+        <p>{{ t.cart.empty }}</p>
+        <a class="btn btn-primary" routerLink="/shop" (click)="ui.closeAll()">{{ t.cart.emptyCta }}</a>
       </div>
     }
   </div>
 
   @if (cart.lines().length) {
     <div class="drawer-foot">
-      <div class="total-row"><span>Subtotal</span><span>{{ cart.total() | money }}</span></div>
-      <p class="fine">Shipping & taxes calculated at checkout. Printed on demand, ships in 3–7 days.</p>
-      <button class="btn btn-grad btn-block" type="button" (click)="checkout()">Checkout →</button>
-      <p class="demo-note" role="status">{{ demoNote() }}</p>
+      <div class="total-row"><span>{{ t.cart.subtotal }}</span><span>{{ cart.total() | money }}</span></div>
+      <p class="fine">{{ t.cart.fine }}</p>
+      <button class="btn btn-grad btn-block" type="button" (click)="checkout()">{{ t.cart.checkout }}</button>
+      <p class="demo-note" role="status">{{ showDemo() ? t.cart.demo : '' }}</p>
     </div>
   }
 </aside>

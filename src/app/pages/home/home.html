@@ -1,190 +1,176 @@
+@let t = i18n.t();
+@let h = t.home;
 <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="live-pill">New episode every Sunday</span>
-          <h1>Wild <span class="grad-text">Child</span></h1>
-          <p class="show-name">The Sunday Recovery Show</p>
-          <p class="lead">Five days of work. One wild weekend of sport, dates and drinks. And then… Sunday. We debrief it all — the PRs, the ghostings, the hangovers — and figure out how to keep the balance.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">▶ Listen on Spotify</a>
-            <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
-          </div>
-        </div>
-
-        <div class="cover" aria-label="Podcast cover art">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wild Child podcast cover">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f0e17"/><stop offset=".55" stop-color="#5a1f4d"/><stop offset="1" stop-color="#ff6b35"/></linearGradient>
-              <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd23f"/><stop offset="1" stop-color="#ff3d7f"/></linearGradient>
-            </defs>
-            <rect width="400" height="400" fill="url(#sky)"/>
-            <circle cx="200" cy="300" r="120" fill="url(#sun)"/>
-            <g fill="#0f0e17" opacity=".9"><rect x="0" y="300" width="400" height="100"/></g>
-            <g stroke="#0f0e17" stroke-width="7"><line x1="60" y1="276" x2="340" y2="276"/><line x1="80" y1="256" x2="320" y2="256"/><line x1="102" y1="236" x2="298" y2="236"/></g>
-            <text x="200" y="120" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="92" fill="#fff8ee">WILD</text>
-            <text x="200" y="200" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="92" fill="#c6f432">CHILD</text>
-            <text x="200" y="346" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="17" fill="#fff8ee" letter-spacing="4">THE SUNDAY RECOVERY SHOW</text>
-            <text x="200" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="12" fill="#ff6b35" letter-spacing="3">SPORT · DATING · HANGOVER · BALANCE</text>
-          </svg>
-        </div>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="live-pill">{{ h.pill }}</span>
+      <h1>Wild <span class="grad-text">Child</span></h1>
+      <p class="show-name">{{ t.show }}</p>
+      <p class="lead">{{ h.lead }}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">{{ h.listenSpotify }}</a>
+        <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
       </div>
-    </section>
+    </div>
 
-    <div class="marquee-wrap" aria-hidden="true"><div class="marquee">
-      <div class="marquee-track">
-        <span>Work hard</span><span>Play harder</span><span>Recover smarter</span><span>Sore legs</span><span>Full heart</span><span>Empty wallet</span>
-        <span>Work hard</span><span>Play harder</span><span>Recover smarter</span><span>Sore legs</span><span>Full heart</span><span>Empty wallet</span>
-      </div>
-    </div></div>
+    <div class="cover">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" [attr.aria-label]="h.coverLabel">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f0e17"/><stop offset=".55" stop-color="#5a1f4d"/><stop offset="1" stop-color="#ff6b35"/></linearGradient>
+          <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd23f"/><stop offset="1" stop-color="#ff3d7f"/></linearGradient>
+        </defs>
+        <rect width="400" height="400" fill="url(#sky)"/>
+        <circle cx="200" cy="300" r="120" fill="url(#sun)"/>
+        <g fill="#0f0e17" opacity=".9"><rect x="0" y="300" width="400" height="100"/></g>
+        <g stroke="#0f0e17" stroke-width="7"><line x1="60" y1="276" x2="340" y2="276"/><line x1="80" y1="256" x2="320" y2="256"/><line x1="102" y1="236" x2="298" y2="236"/></g>
+        <text x="200" y="120" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="92" fill="#fff8ee">WILD</text>
+        <text x="200" y="200" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="92" fill="#c6f432">CHILD</text>
+        <text x="200" y="346" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="16" fill="#fff8ee" letter-spacing="3" textLength="340" lengthAdjust="spacingAndGlyphs">{{ h.coverLine1 }}</text>
+        <text x="200" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#ff6b35" letter-spacing="2" textLength="340" lengthAdjust="spacingAndGlyphs">{{ h.coverLine2 }}</text>
+      </svg>
+    </div>
+  </div>
+</section>
 
-    <!-- STORY -->
-    <section class="section" id="story">
-      <div class="container">
-        <span class="eyebrow">Our story</span>
-        <h2>Everybody lives<br>the <span class="grad-text">same week</span></h2>
-        <p class="lead">We're not coaches. We're not saints. We're just people with jobs, trainers, dating apps and questionable Saturday nights — figuring out the balance, out loud, together.</p>
+<div class="marquee-wrap" aria-hidden="true"><div class="marquee">
+  <div class="marquee-track">
+    @for (word of h.marquee; track $index) {<span>{{ word }}</span>}
+    @for (word of h.marquee; track $index) {<span>{{ word }}</span>}
+  </div>
+</div></div>
 
-        <div class="week">
-          <article class="week-card grind">
-            <div class="days">Monday → Friday</div>
-            <h3>The Grind</h3>
-            <p>Alarm, commute, meetings, deadlines. You're responsible. You're tired. You're counting the hours.</p>
-          </article>
-          <article class="week-card wild">
-            <div class="days">Friday night → Saturday</div>
-            <h3>The Wild Part</h3>
-            <p>The morning run or match with the crew. Then a date. Then drinks. Then “let's go somewhere else”. You feel alive.</p>
-          </article>
-          <article class="week-card recovery">
-            <div class="days">Sunday</div>
-            <h3 class="lime">The Recovery</h3>
-            <p>Sore legs, a headache, unread messages — and one question: how do I do all this and still be okay on Monday? That's where we come in.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+<!-- STORY -->
+<section class="section" id="story">
+  <div class="container">
+    <span class="eyebrow">{{ h.story.eyebrow }}</span>
+    <h2>{{ h.story.title1 }}<br><span class="grad-text">{{ h.story.titleAccent }}</span></h2>
+    <p class="lead">{{ h.story.lead }}</p>
 
-    <!-- FORMAT -->
-    <section class="section section-alt" id="format">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">The show · ≈ 45 min</span>
-          <h2>Four rounds.<br>Zero judgement.</h2>
-        </div>
-        <div class="segments">
-          <article class="segment">
-            <span class="num grad-text">01</span>
-            <div><h3>The Scoreboard</h3><p>The weekend's sport recap — the run, the match, the gym, the PRs and the injuries.</p></div>
-          </article>
-          <article class="segment">
-            <span class="num grad-text">02</span>
-            <div><h3>The Swipe Report</h3><p>Dating stories: matches, dates, red flags, green flags and your DMs read out loud.</p></div>
-          </article>
-          <article class="segment">
-            <span class="num grad-text">03</span>
-            <div><h3>The Damage Report</h3><p>The night out and the morning after. Hangover rated /10 — what helped, what didn't.</p></div>
-          </article>
-          <article class="segment">
-            <span class="num grad-text">04</span>
-            <div><h3>The Monday Reset</h3><p>The balance part: sleep, food, recovery, money, mindset — and one tip to apply this week.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <div class="week">
+      <article class="week-card grind">
+        <div class="days">{{ h.story.grindDays }}</div>
+        <h3>{{ h.story.grindTitle }}</h3>
+        <p>{{ h.story.grindText }}</p>
+      </article>
+      <article class="week-card wild">
+        <div class="days">{{ h.story.wildDays }}</div>
+        <h3>{{ h.story.wildTitle }}</h3>
+        <p>{{ h.story.wildText }}</p>
+      </article>
+      <article class="week-card recovery">
+        <div class="days">{{ h.story.recoveryDays }}</div>
+        <h3 class="lime">{{ h.story.recoveryTitle }}</h3>
+        <p>{{ h.story.recoveryText }}</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- EPISODES -->
-    <section class="section" id="episodes">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Latest episodes</span>
-          <h2>Press play,<br>drink water</h2>
-        </div>
-        <div class="episodes">
-          @for (e of site.episodes; track e.n) {
-            <article class="episode">
-              <div class="episode-num" aria-hidden="true">{{ e.n < 10 ? '0' + e.n : e.n }}</div>
-              <div>
-                <div class="episode-meta">
-                  <span>EP {{ e.n }}</span><span>{{ e.date }}</span><span>{{ e.length }}</span>
-                  @for (t of e.tags; track t) {<span class="tag">#{{ t }}</span>}
-                </div>
-                <h3>{{ e.title }}</h3>
-                <p>{{ e.desc }}</p>
-              </div>
-              <a class="btn btn-ghost play" [href]="site.listen.spotify" target="_blank" rel="noopener" [attr.aria-label]="'Listen to episode ' + e.n">▶ Listen</a>
-            </article>
-          }
-        </div>
-        <div class="platforms">
-          <a class="btn btn-ghost" [href]="site.listen.spotify" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
-          <a class="btn btn-ghost" [href]="site.listen.youtube" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn btn-ghost" [href]="site.listen.deezer" target="_blank" rel="noopener">Deezer</a>
-        </div>
-      </div>
-    </section>
+<!-- FORMAT -->
+<section class="section section-alt" id="format">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ h.format.eyebrow }}</span>
+      <h2>{{ h.format.title1 }}<br>{{ h.format.title2 }}</h2>
+    </div>
+    <div class="segments">
+      @for (s of h.format.segments; track $index) {
+        <article class="segment">
+          <span class="num grad-text">0{{ $index + 1 }}</span>
+          <div><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
 
-    <!-- HOSTS -->
-    <section class="section section-alt" id="hosts">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Your hosts</span>
-          <h2>The crew</h2>
-        </div>
-        <div class="hosts">
-          <article class="host">
-            <div class="avatar" style="background:var(--lime)">A</div>
-            <div class="role">The Athlete</div>
-            <h3>Host #1</h3>
-            <p>Never misses a Saturday run. Sometimes misses Sunday entirely. In charge of The Scoreboard.</p>
-          </article>
-          <article class="host">
-            <div class="avatar" style="background:var(--pink)">R</div>
-            <div class="role">The Romantic</div>
-            <h3>Host #2</h3>
-            <p>Three apps, two situationships, one big heart. Runs The Swipe Report.</p>
-          </article>
-          <article class="host">
-            <div class="avatar" style="background:var(--sunrise)">P</div>
-            <div class="role">The Party Scientist</div>
-            <h3>Special guests</h3>
-            <p>Coaches, doctors, nutritionists, bartenders and listeners who lived through a legendary weekend.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SHOP TEASER -->
-    <section class="section">
-      <div class="container">
-        <div class="shop-teaser">
+<!-- EPISODES -->
+<section class="section" id="episodes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ h.episodes.eyebrow }}</span>
+      <h2>{{ h.episodes.title1 }}<br>{{ h.episodes.title2 }}</h2>
+    </div>
+    <div class="episodes">
+      @for (e of site.episodes; track e.n) {
+        @let et = t.episodeText[e.n];
+        <article class="episode">
+          <div class="episode-num" aria-hidden="true">{{ e.n < 10 ? '0' + e.n : e.n }}</div>
           <div>
-            <span class="eyebrow" style="color:#fff">The merch</span>
-            <h2>Wear the<br>recovery</h2>
-            <p>Tees, hoodies, caps and hangover essentials. Printed on demand, just for you.</p>
-            <a class="btn btn-primary" routerLink="/shop">Shop the drop →</a>
+            <div class="episode-meta">
+              <span>{{ h.episodes.ep }} {{ e.n }}</span><span>{{ h.episodes.sunday }} {{ e.n }}</span><span>{{ e.length }}</span>
+              @for (tag of e.tags; track tag) {<span class="tag">#{{ tag }}</span>}
+            </div>
+            <h3>{{ et.title }}</h3>
+            <p>{{ et.desc }}</p>
           </div>
-          <div class="mini-products" aria-hidden="true">
-            @for (p of teaser; track p.id) {
-              <div><app-mockup [product]="p" /></div>
-            }
-          </div>
-        </div>
-      </div>
-    </section>
+          <a class="btn btn-ghost play" [href]="site.listen.spotify" target="_blank" rel="noopener" [attr.aria-label]="h.episodes.listenTo + ' ' + e.n">{{ h.episodes.listen }}</a>
+        </article>
+      }
+    </div>
+    <div class="platforms">
+      <a class="btn btn-ghost" [href]="site.listen.spotify" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn btn-ghost" [href]="site.listen.apple" target="_blank" rel="noopener">Apple Podcasts</a>
+      <a class="btn btn-ghost" [href]="site.listen.youtube" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn btn-ghost" [href]="site.listen.deezer" target="_blank" rel="noopener">Deezer</a>
+    </div>
+  </div>
+</section>
 
-    <!-- NEWSLETTER -->
-    <section class="section section-alt newsletter" id="newsletter">
-      <div class="container">
-        <span class="eyebrow">The Sunday letter</span>
-        <h2>Join the<br><span class="grad-text">recovery club</span></h2>
-        <p class="lead">One email every Sunday: the new episode, our Monday Reset tip and early access to merch drops.</p>
-        <form class="form-row" novalidate (submit)="subscribe($event, email)">
-          <label class="sr-only" for="nl-email">Email address</label>
-          <input #email class="input" id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
-          <button class="btn btn-grad" type="submit">I'm in</button>
-        </form>
-        <p class="form-msg" role="status">{{ newsletterMsg() }}</p>
+<!-- HOSTS -->
+<section class="section section-alt" id="hosts">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ h.hosts.eyebrow }}</span>
+      <h2>{{ h.hosts.title }}</h2>
+    </div>
+    <div class="hosts">
+      @for (host of h.hosts.list; track $index) {
+        <article class="host">
+          <div class="avatar" aria-hidden="true" [style.background]="avatars[$index].color">{{ avatars[$index].icon }}</div>
+          <div class="role">{{ host.role }}</div>
+          <h3>{{ host.name }}</h3>
+          <p>{{ host.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ASK A QUESTION -->
+<app-ask-question />
+
+<!-- SHOP TEASER -->
+<section class="section">
+  <div class="container">
+    <div class="shop-teaser">
+      <div>
+        <span class="eyebrow" style="color: #fff">{{ h.teaser.eyebrow }}</span>
+        <h2>{{ h.teaser.title1 }}<br>{{ h.teaser.title2 }}</h2>
+        <p>{{ h.teaser.text }}</p>
+        <a class="btn btn-primary" routerLink="/shop">{{ h.teaser.cta }}</a>
       </div>
-    </section>
+      <div class="mini-products" aria-hidden="true">
+        @for (p of teaser; track p.id) {
+          <div><app-mockup [product]="p" /></div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section section-alt newsletter" id="newsletter">
+  <div class="container">
+    <span class="eyebrow">{{ h.newsletter.eyebrow }}</span>
+    <h2>{{ h.newsletter.title1 }}<br><span class="grad-text">{{ h.newsletter.titleAccent }}</span></h2>
+    <p class="lead">{{ h.newsletter.lead }}</p>
+    <form class="form-row" novalidate (submit)="subscribe($event, email)">
+      <label class="sr-only" for="nl-email">{{ h.newsletter.label }}</label>
+      <input #email class="input" id="nl-email" type="email" name="email" [placeholder]="h.newsletter.placeholder" autocomplete="email" required>
+      <button class="btn btn-grad" type="submit">{{ h.newsletter.submit }}</button>
+    </form>
+    <p class="form-msg" role="status">{{ newsletterState() ? h.newsletter[newsletterState()!] : '' }}</p>
+  </div>
+</section>

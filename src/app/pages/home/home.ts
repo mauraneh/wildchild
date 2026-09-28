@@ -1,32 +1,45 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { findProduct } from '../../core/cart.service';
 import { Product, SITE } from '../../core/site.config';
+import { I18nService } from '../../i18n/i18n.service';
 import { Mockup } from '../../shared/mockup.component';
+import { AskQuestion } from './ask-question';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Mockup],
+  imports: [RouterLink, Mockup, AskQuestion],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.html',
 })
 export class Home {
+  protected readonly i18n = inject(I18nService);
   protected readonly site = SITE;
+  protected readonly avatars = [
+    { icon: '🏃', color: 'var(--lime)' },
+    { icon: '💘', color: 'var(--pink)' },
+    { icon: '🎙️', color: 'var(--sunrise)' },
+  ];
   protected readonly teaser = ['sore-sorry-tee', 'recovery-hoodie', 'wild-child-cap']
     .map(findProduct)
     .filter((p): p is Product => !!p);
-  protected readonly newsletterMsg = signal('');
+  protected readonly newsletterState = signal<'invalid' | 'thanks' | null>(null);
+
+  constructor() {
+    this.i18n.pageTitle.set('homeTitle');
+  }
 
   protected async subscribe(ev: Event, input: HTMLInputElement): Promise<void> {
     ev.preventDefault();
     const email = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      this.newsletterMsg.set('That email looks a bit hungover. Try again?');
+      this.newsletterState.set('invalid');
       return;
     }
     if (SITE.newsletterEndpoint) {
       const body = new FormData();
       body.set('email', email);
+      body.set('lang', this.i18n.lang());
       try {
         await fetch(SITE.newsletterEndpoint, { method: 'POST', body, mode: 'no-cors' });
       } catch {
@@ -34,6 +47,6 @@ export class Home {
       }
     }
     input.value = '';
-    this.newsletterMsg.set("You're in! See you Sunday ☀️");
+    this.newsletterState.set('thanks');
   }
 }

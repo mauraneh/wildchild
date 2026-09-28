@@ -1,6 +1,8 @@
 /*
  * WILD CHILD — site configuration
- * Everything you need to edit (brand, links, shop, products, episodes) lives here.
+ * Links, shop settings, prices, variants and episode data live here.
+ * All visible texts (FR / ES / PT), including product names and episode titles,
+ * live in src/app/i18n/{fr,es,pt}.ts — the English names below are only fallbacks.
  * See SHOP_SETUP.md for how to connect the shop to Shopify + Printful.
  */
 
@@ -36,7 +38,8 @@ export interface SiteConfig {
   listen: Record<'spotify' | 'apple' | 'youtube' | 'deezer', string>;
   social: Record<'instagram' | 'tiktok' | 'youtube', string>;
   newsletterEndpoint: string;
-  shop: { domain: string; currency: string; locale: string; freeShippingFrom: number };
+  questionsEndpoint: string;
+  shop: { domain: string; currency: string; freeShippingFrom: number };
   products: Product[];
   episodes: Episode[];
 }
@@ -67,6 +70,11 @@ export const SITE: SiteConfig = {
   // Leave empty to keep demo mode (shows a thank-you message only).
   newsletterEndpoint: "",
 
+  // Listener questions ("Pose ta question"): paste a form endpoint that accepts POST + JSON,
+  // e.g. a free Formspree form URL "https://formspree.io/f/xxxxxxx" — questions then arrive by e-mail.
+  // Leave empty: the form opens the visitor's mail app with the question pre-filled, sent to brand.email.
+  questionsEndpoint: "",
+
   /*
    * SHOP — headless Shopify checkout + Printful print-on-demand dropshipping.
    * 1. Create a Shopify store and install the Printful app.
@@ -77,7 +85,6 @@ export const SITE: SiteConfig = {
   shop: {
     domain: "", // e.g. "wildchild-store.myshopify.com"
     currency: "EUR",
-    locale: "fr-FR",
     freeShippingFrom: 60,
   },
 
