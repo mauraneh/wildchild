@@ -1,22 +1,24 @@
 import { DOCUMENT, Injectable, computed, effect, inject, signal } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Product } from '../core/site.config';
+import { en } from './en';
 import { es } from './es';
 import { Dict, fr } from './fr';
 import { pt } from './pt';
 
-export const LANGS = ['fr', 'es', 'pt'] as const;
+/** Order = order of the language switch. French first, English second. */
+export const LANGS = ['fr', 'en', 'es', 'pt'] as const;
 export type Lang = (typeof LANGS)[number];
 
-const DICTS: Record<Lang, Dict> = { fr, es, pt };
+const DICTS: Record<Lang, Dict> = { fr, en, es, pt };
 const LANG_KEY = 'wc_lang';
 const isLang = (v: unknown): v is Lang => LANGS.includes(v as Lang);
 
 type PageTitle = 'homeTitle' | 'shopTitle';
 
 /**
- * Runtime translations (FR by default, ES, PT).
- * Language priority: ?lang= in the URL → saved choice → browser language → French.
+ * Runtime translations: French (default), English, Spanish, Portuguese.
+ * Language priority: ?lang= in the URL → saved choice → browser language → English.
  */
 @Injectable({ providedIn: 'root' })
 export class I18nService {
@@ -69,6 +71,8 @@ export class I18nService {
       /* storage unavailable */
     }
     const browser = (this.doc.defaultView?.navigator.languages ?? []).map((l) => l.slice(0, 2).toLowerCase());
-    return browser.find(isLang) ?? 'fr';
+    // Visitors whose browser speaks none of our languages get English, the international one.
+    if (!browser.length) return 'fr';
+    return browser.find(isLang) ?? 'en';
   }
 }

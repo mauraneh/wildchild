@@ -4,6 +4,7 @@ import { App } from './app';
 import { CartService } from './core/cart.service';
 import { SITE } from './core/site.config';
 import { routes } from './app.routes';
+import { en } from './i18n/en';
 import { es } from './i18n/es';
 import { fr } from './i18n/fr';
 import { I18nService } from './i18n/i18n.service';
@@ -36,7 +37,7 @@ describe('App', () => {
     const i18n = TestBed.inject(I18nService);
     const compiled = fixture.nativeElement as HTMLElement;
 
-    for (const [lang, dict] of [['fr', fr], ['es', es], ['pt', pt]] as const) {
+    for (const [lang, dict] of [['fr', fr], ['en', en], ['es', es], ['pt', pt]] as const) {
       i18n.setLang(lang);
       await fixture.whenStable();
       expect(compiled.querySelector('.nav a')?.textContent).toContain(dict.nav.story);
@@ -47,7 +48,7 @@ describe('App', () => {
 
 describe('Translations', () => {
   it('cover every product and episode in every language', () => {
-    for (const dict of [fr, es, pt]) {
+    for (const dict of [fr, en, es, pt]) {
       for (const p of SITE.products) expect(dict.products[p.id]?.name).toBeTruthy();
       for (const e of SITE.episodes) expect(dict.episodeText[e.n]?.title).toBeTruthy();
     }
@@ -57,6 +58,7 @@ describe('Translations', () => {
 describe('AskQuestion', () => {
   async function setup() {
     localStorage.clear();
+    localStorage.setItem('wc_lang', 'fr');
     await TestBed.configureTestingModule({ imports: [AskQuestion] }).compileComponents();
     const fixture = TestBed.createComponent(AskQuestion);
     await fixture.whenStable();
