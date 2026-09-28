@@ -63,10 +63,10 @@ export class AskQuestion {
 
     const t = this.i18n.t().home.ask;
     const payload = {
-      name: this.name().trim() || '—',
+      name: this.name().trim() || '-',
       topic: t.topics[this.topic()],
       question: this.question().trim(),
-      email: this.contact().trim() || '—',
+      email: this.contact().trim() || '-',
       anonymous: this.anonymous() ? 'yes' : 'no',
       language: this.i18n.lang(),
       _subject: `${t.mailSubject} · ${t.topics[this.topic()]}`,
@@ -114,7 +114,7 @@ export class AskQuestion {
     const body = [
       p.question,
       '',
-      '—',
+      '---',
       `${t.topicLabel}: ${p.topic}`,
       `${t.nameLabel}: ${p.name}`,
       `${t.anonymous}: ${p.anonymous}`,

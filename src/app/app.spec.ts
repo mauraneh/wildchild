@@ -47,6 +47,10 @@ describe('App', () => {
 });
 
 describe('Translations', () => {
+  it('never use long dashes (house style)', () => {
+    for (const dict of [fr, en, es, pt]) expect(JSON.stringify(dict)).not.toMatch(/[—–]/);
+  });
+
   it('cover every product and episode in every language', () => {
     for (const dict of [fr, en, es, pt]) {
       for (const p of SITE.products) expect(dict.products[p.id]?.name).toBeTruthy();
