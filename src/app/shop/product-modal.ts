@@ -18,7 +18,7 @@ export class ProductModal {
   private readonly cart = inject(CartService);
   protected readonly freeShippingFrom = SITE.shop.freeShippingFrom;
   protected readonly size = signal<string | null>(null);
-  protected readonly sizes = computed(() => Object.keys(this.ui.product()?.variants ?? {}));
+  protected readonly sizes = computed(() => (this.ui.product()?.variants ?? []).map((v) => v.size));
   protected readonly text = computed(() => {
     const p = this.ui.product();
     return p ? this.i18n.productText(p) : null;
@@ -29,7 +29,7 @@ export class ProductModal {
     effect(() => {
       const p = this.ui.product();
       if (!p) return;
-      const sizes = Object.keys(p.variants);
+      const sizes = p.variants.map((v) => v.size);
       this.size.set(sizes.length === 1 ? sizes[0] : null);
       setTimeout(() => this.closeBtn().nativeElement.focus(), 50);
     });

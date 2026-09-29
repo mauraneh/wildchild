@@ -39,7 +39,7 @@ import { LangSwitch } from './lang-switch';
             <ul>
               <li><a routerLink="/shop">{{ t.nav.shop }}</a></li>
               <li><a routerLink="/" fragment="newsletter">{{ t.footer.newsletter }}</a></li>
-              <li><a [href]="'mailto:' + site.brand.email">{{ site.brand.email }}</a></li>
+              <li><a [href]="'mailto:' + site.email">{{ site.email }}</a></li>
             </ul>
           </div>
         </div>

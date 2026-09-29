@@ -67,6 +67,8 @@ export const fr = {
       sunday: 'Dim · Semaine',
       listen: '▶ Écouter',
       listenTo: 'Écouter l’épisode',
+      watch: '▶ Voir',
+      watchOn: 'Voir l’épisode',
     },
     hosts: {
       eyebrow: 'Le casting',
@@ -167,7 +169,7 @@ export const fr = {
     subtotal: 'Sous-total',
     fine: 'Livraison et taxes calculées au paiement. Imprimé à la demande, livré en 3 à 7 jours.',
     checkout: 'Commander →',
-    demo: 'Mode démo : connecte ta boutique Shopify et les IDs de variantes dans src/app/core/site.config.ts pour prendre de vraies commandes (voir SHOP_SETUP.md).',
+    demo: 'Mode démo : ajoute le domaine Shopify et les IDs de variantes dans l’admin (Réglages et Merch) pour prendre de vraies commandes.',
   },
   footer: {
     listen: 'Écouter',
@@ -177,24 +179,6 @@ export const fr = {
     rights: 'Wild Child. L’abus d’alcool est dangereux pour la santé. Nos conseils aussi.',
     madeOn: 'Fait un dimanche, entre deux mimosas ☀️',
   },
-  /** Texte des produits, par id produit (voir site.config.ts). */
-  products: {
-    'sore-sorry-tee': { name: 'T-shirt Sore & Sorry', badge: 'Best-seller', description: 'T-shirt épais en coton bio. Pour le dimanche qui paie les erreurs du samedi.' },
-    'recovery-hoodie': { name: 'Sweat Recovery Club', badge: 'Nouveau', description: 'Molleton tout doux, coupe oversize. La tenue officielle du canapé du dimanche.' },
-    'wild-child-cap': { name: 'Casquette Wild Child', badge: '', description: 'Casquette brodée en coton délavé. Cache les cernes, pas les regrets.' },
-    'monday-reset-mug': { name: 'Mug Monday Reset', badge: '', description: 'Céramique 33 cl. D’abord le café. Les mails, on verra.' },
-    'hydrate-bottle': { name: 'Gourde Hydrate or Die', badge: 'Essentiel', description: 'Gourde isotherme en inox. Un verre d’eau entre chaque verre. On sait, tu ne le feras pas.' },
-    'swipe-report-tote': { name: 'Tote bag Swipe Report', badge: '', description: 'Tote en toile épaisse pour tes affaires de sport, ta tenue de date, ou juste tes excuses.' },
-    'scoreboard-tee': { name: 'T-shirt Scoreboard', badge: '', description: 'T-shirt en coton tout doux. Validé pour la séance de 6h, et pour l’apéro de 19h.' },
-    'sunday-hoodie': { name: 'Sweat Every Sunday', badge: 'Édition limitée', description: 'Sweat à capuche bien épais. Même gueule de bois, nouvelles leçons.' },
-  } as Record<string, { name: string; badge: string; description: string }>,
-  /** Texte des épisodes, par numéro d’épisode. */
-  episodeText: {
-    4: { title: 'Deux buts, un ghosting', desc: 'Deux buts au five, un match sur l’appli et un ghosting avant midi dimanche. Plus : la règle des 3 verres, qu’on n’a évidemment pas respectée.' },
-    3: { title: 'Semi-marathon, gueule de bois intégrale', desc: 'Peut-on courir 21 km le lendemain d’un anniversaire ? On a testé pour toi. Science et honte incluses.' },
-    2: { title: 'Le protocole Reset du lundi', desc: 'Sommeil, électrolytes, meal prep et détox du téléphone : notre plan en 5 étapes pour survivre au lundi. Testé une fois. Ça a marché une fois.' },
-    1: { title: 'Bienvenue chez Wild Child', desc: 'Qui on est, pourquoi le dimanche, et le brunch catastrophique qui nous a donné l’idée de ce podcast.' },
-  } as Record<number, { title: string; desc: string }>,
 };
 
 export type Dict = typeof fr;

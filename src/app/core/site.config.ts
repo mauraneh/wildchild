@@ -1,233 +1,145 @@
 /*
- * WILD CHILD — site configuration
- * Links, shop settings, prices, variants and episode data live here.
- * All visible texts (FR / ES / PT), including product names and episode titles,
- * live in src/app/i18n/{fr,es,pt}.ts — the English names below are only fallbacks.
- * See SHOP_SETUP.md for how to connect the shop to Shopify + Printful.
+ * WILD CHILD — site content.
+ * Episodes, products and settings live in src/content/*.json and are edited from the
+ * admin (/admin, Sveltia CMS). Every edit is a Git commit: CI validates the content
+ * (see content.spec.ts) before anything is deployed.
+ * UI texts (FR / EN / ES / PT) live in src/app/i18n/.
  */
+import episodesFile from '../../content/episodes.json';
+import productsFile from '../../content/products.json';
+import settingsFile from '../../content/settings.json';
 
-export type ProductType = 'tee' | 'hoodie' | 'cap' | 'mug' | 'bottle' | 'tote';
-export type Category = 'apparel' | 'accessories' | 'home';
+export type ContentLang = 'fr' | 'en' | 'es' | 'pt';
+export type Localized = Record<ContentLang, string>;
+
+export const PRODUCT_TYPES = ['tee', 'hoodie', 'cap', 'mug', 'bottle', 'tote'] as const;
+export const CATEGORIES = ['apparel', 'accessories', 'home'] as const;
+export type ProductType = (typeof PRODUCT_TYPES)[number];
+export type Category = (typeof CATEGORIES)[number];
+
+export interface Variant {
+  size: string;
+  /** Shopify variant ID (digits). Empty = demo mode. */
+  shopifyId: string;
+}
 
 export interface Product {
   id: string;
-  name: string;
+  published: boolean;
   type: ProductType;
   category: Category;
   price: number;
   color: string;
   ink: string;
   print: string;
-  badge: string;
-  description: string;
-  /** size/variant label -> Shopify variant ID (empty in demo mode) */
-  variants: Record<string, string>;
+  /** Optional photo (path in public/uploads). Empty = SVG mockup. */
+  image: string;
+  name: Localized;
+  badge: Localized;
+  description: Localized;
+  variants: Variant[];
 }
 
 export interface Episode {
   n: number;
-  title: string;
-  desc: string;
-  length: string;
+  published: boolean;
+  /** YYYY-MM-DD */
   date: string;
+  length: string;
   tags: string[];
+  spotify: string;
+  youtube: string;
+  title: Localized;
+  desc: Localized;
 }
 
-export interface SiteConfig {
-  brand: { name: string; show: string; tagline: string; email: string };
+export interface Settings {
+  email: string;
   listen: Record<'spotify' | 'apple' | 'youtube' | 'deezer', string>;
   social: Record<'instagram' | 'tiktok' | 'youtube', string>;
   newsletterEndpoint: string;
   questionsEndpoint: string;
   shop: { domain: string; currency: string; freeShippingFrom: number };
+}
+
+export interface SiteConfig extends Settings {
+  brand: { name: string };
   products: Product[];
   episodes: Episode[];
 }
 
+/* ---------- Validation (used at runtime to sanitize, and by CI tests to reject bad content) ---------- */
+
+export const HEX_COLOR = /^#[0-9a-f]{3}([0-9a-f]{3})?$/i;
+export const SAFE_LINK = /^(#|https:\/\/[^\s"'<>]+)?$/;
+export const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+export const SHOPIFY_ID = /^\d*$/;
+export const SHOPIFY_DOMAIN = /^([a-z0-9-]+\.myshopify\.com)?$/;
+export const IMAGE_PATH = /^(\/?uploads\/[\w.-]+\.(jpe?g|png|webp|avif))?$/i;
+export const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+const LANGS: ContentLang[] = ['fr', 'en', 'es', 'pt'];
+
+const isLocalized = (l: unknown): l is Localized =>
+  !!l && typeof l === 'object' && LANGS.every((k) => typeof (l as Record<string, unknown>)[k] === 'string');
+
+/** Returns a list of problems; empty means the product is safe to render. */
+export function productProblems(p: Product): string[] {
+  const e: string[] = [];
+  if (!SLUG.test(p.id)) e.push(`${p.id}: id must be lowercase-with-dashes`);
+  if (!PRODUCT_TYPES.includes(p.type)) e.push(`${p.id}: unknown type ${p.type}`);
+  if (!CATEGORIES.includes(p.category)) e.push(`${p.id}: unknown category ${p.category}`);
+  if (!(typeof p.price === 'number' && p.price > 0 && p.price < 10000)) e.push(`${p.id}: invalid price`);
+  if (!HEX_COLOR.test(p.color) || !HEX_COLOR.test(p.ink)) e.push(`${p.id}: colors must be #rrggbb`);
+  if (typeof p.print !== 'string' || p.print.length > 24) e.push(`${p.id}: print text max 24 characters`);
+  if (!IMAGE_PATH.test(p.image ?? '')) e.push(`${p.id}: image must be an uploaded jpg/png/webp`);
+  if (!isLocalized(p.name) || !isLocalized(p.badge) || !isLocalized(p.description)) e.push(`${p.id}: texts needed in fr/en/es/pt`);
+  else if (LANGS.some((l) => !p.name[l].trim())) e.push(`${p.id}: name missing in a language`);
+  if (!Array.isArray(p.variants) || !p.variants.length) e.push(`${p.id}: at least one size`);
+  else if (p.variants.some((v) => !v.size?.trim() || !SHOPIFY_ID.test(v.shopifyId ?? ''))) e.push(`${p.id}: invalid size or Shopify ID`);
+  return e;
+}
+
+export function episodeProblems(ep: Episode): string[] {
+  const e: string[] = [];
+  const id = `episode ${ep.n}`;
+  if (!Number.isInteger(ep.n) || ep.n < 0) e.push(`${id}: number must be a positive integer`);
+  if (!ISO_DATE.test(ep.date) || Number.isNaN(Date.parse(ep.date))) e.push(`${id}: date must be YYYY-MM-DD`);
+  if (!SAFE_LINK.test(ep.spotify ?? '') || !SAFE_LINK.test(ep.youtube ?? '')) e.push(`${id}: links must start with https://`);
+  if (!isLocalized(ep.title) || !isLocalized(ep.desc)) e.push(`${id}: texts needed in fr/en/es/pt`);
+  else if (LANGS.some((l) => !ep.title[l].trim())) e.push(`${id}: title missing in a language`);
+  if (!Array.isArray(ep.tags)) e.push(`${id}: tags must be a list`);
+  return e;
+}
+
+export function settingsProblems(s: Settings): string[] {
+  const e: string[] = [];
+  const links = [...Object.values(s.listen), ...Object.values(s.social), s.newsletterEndpoint, s.questionsEndpoint];
+  if (links.some((l) => !SAFE_LINK.test(l ?? ''))) e.push('settings: links must start with https://');
+  if (!/^[^\s@"<>]+@[^\s@"<>]+\.[^\s@"<>]+$/.test(s.email)) e.push('settings: invalid e-mail');
+  if (!SHOPIFY_DOMAIN.test(s.shop.domain)) e.push('settings: Shopify domain must look like store.myshopify.com');
+  if (!/^[A-Z]{3}$/.test(s.shop.currency)) e.push('settings: currency must be a 3-letter code (EUR)');
+  if (!(s.shop.freeShippingFrom >= 0)) e.push('settings: invalid free-shipping threshold');
+  return e;
+}
+
+/* ---------- Load ---------- */
+
+const settings = settingsFile as Settings;
+const allProducts = productsFile.products as Product[];
+const allEpisodes = episodesFile.episodes as Episode[];
+
+export const RAW_CONTENT = { settings, products: allProducts, episodes: allEpisodes };
+
+// Defence in depth: anything invalid is dropped instead of rendered.
+const safeSettings: Settings = settingsProblems(settings).length
+  ? { ...settings, listen: { spotify: '#', apple: '#', youtube: '#', deezer: '#' }, social: { instagram: '#', tiktok: '#', youtube: '#' }, newsletterEndpoint: '', questionsEndpoint: '', shop: { ...settings.shop, domain: '' } }
+  : settings;
+
 export const SITE: SiteConfig = {
-  brand: {
-    name: "WILD CHILD",
-    show: "The Sunday Recovery Show",
-    tagline: "Work hard. Play harder. Recover smarter.",
-    email: "hello@wildchildpodcast.com",
-  },
-
-  // Where people can listen — replace "#" with your real show URLs.
-  listen: {
-    spotify: "#",
-    apple: "#",
-    youtube: "#",
-    deezer: "#",
-  },
-
-  social: {
-    instagram: "#",
-    tiktok: "#",
-    youtube: "#",
-  },
-
-  // Newsletter: paste a form endpoint (Mailchimp, Brevo, ConvertKit, Formspree...).
-  // Leave empty to keep demo mode (shows a thank-you message only).
-  newsletterEndpoint: "",
-
-  // Listener questions ("Pose ta question"): paste a form endpoint that accepts POST + JSON,
-  // e.g. a free Formspree form URL "https://formspree.io/f/xxxxxxx" — questions then arrive by e-mail.
-  // Leave empty: the form opens the visitor's mail app with the question pre-filled, sent to brand.email.
-  questionsEndpoint: "",
-
-  /*
-   * SHOP — headless Shopify checkout + Printful print-on-demand dropshipping.
-   * 1. Create a Shopify store and install the Printful app.
-   * 2. Design products in Printful and push them to Shopify.
-   * 3. Put your store domain below and each size's Shopify *variant ID* in the products list.
-   * While `domain` is empty, the shop runs in demo mode (cart works, checkout is simulated).
-   */
-  shop: {
-    domain: "", // e.g. "wildchild-store.myshopify.com"
-    currency: "EUR",
-    freeShippingFrom: 60,
-  },
-
-  // variants: { SIZE: "SHOPIFY_VARIANT_ID" } — leave IDs empty in demo mode.
-  products: [
-    {
-      id: "sore-sorry-tee",
-      name: "Sore & Sorry Tee",
-      type: "tee",
-      category: "apparel",
-      price: 32,
-      color: "#fff8ee",
-      ink: "#0f0e17",
-      print: "SORE & SORRY",
-      badge: "Bestseller",
-      description: "Heavyweight organic cotton tee. For the Sunday after the Saturday.",
-      variants: { S: "", M: "", L: "", XL: "", XXL: "" },
-    },
-    {
-      id: "recovery-hoodie",
-      name: "Recovery Club Hoodie",
-      type: "hoodie",
-      category: "apparel",
-      price: 59,
-      color: "#0f0e17",
-      ink: "#c6f432",
-      print: "RECOVERY CLUB",
-      badge: "New",
-      description: "Brushed fleece, oversized fit. Official uniform of the Sunday couch.",
-      variants: { S: "", M: "", L: "", XL: "", XXL: "" },
-    },
-    {
-      id: "wild-child-cap",
-      name: "Wild Child Dad Cap",
-      type: "cap",
-      category: "accessories",
-      price: 28,
-      color: "#ff6b35",
-      ink: "#fff8ee",
-      print: "WILD CHILD",
-      badge: "",
-      description: "Embroidered washed-cotton cap. Hides the hangover, shows the vibe.",
-      variants: { "One size": "" },
-    },
-    {
-      id: "monday-reset-mug",
-      name: "Monday Reset Mug",
-      type: "mug",
-      category: "home",
-      price: 18,
-      color: "#fff8ee",
-      ink: "#ff3d7f",
-      print: "MONDAY RESET",
-      badge: "",
-      description: "11oz ceramic. Coffee first, emails second.",
-      variants: { "11oz": "", "15oz": "" },
-    },
-    {
-      id: "hydrate-bottle",
-      name: "Hydrate or Die Bottle",
-      type: "bottle",
-      category: "accessories",
-      price: 29,
-      color: "#c6f432",
-      ink: "#0f0e17",
-      print: "HYDRATE",
-      badge: "Essential",
-      description: "Insulated stainless-steel bottle. Water between every drink. Trust us.",
-      variants: { "750ml": "" },
-    },
-    {
-      id: "swipe-report-tote",
-      name: "Swipe Report Tote",
-      type: "tote",
-      category: "accessories",
-      price: 22,
-      color: "#ff3d7f",
-      ink: "#fff8ee",
-      print: "SWIPE REPORT",
-      badge: "",
-      description: "Heavy canvas tote for gym clothes, date-night outfit, or both.",
-      variants: { "One size": "" },
-    },
-    {
-      id: "scoreboard-tee",
-      name: "Scoreboard Tee",
-      type: "tee",
-      category: "apparel",
-      price: 32,
-      color: "#ff6b35",
-      ink: "#0f0e17",
-      print: "SCOREBOARD",
-      badge: "",
-      description: "Soft-wash cotton tee for the ones who never skip leg day (only Sundays).",
-      variants: { S: "", M: "", L: "", XL: "" },
-    },
-    {
-      id: "sunday-hoodie",
-      name: "Every Sunday Hoodie",
-      type: "hoodie",
-      category: "apparel",
-      price: 59,
-      color: "#ff3d7f",
-      ink: "#0f0e17",
-      print: "EVERY SUNDAY",
-      badge: "Limited",
-      description: "Heavy fleece hoodie. Same headache, new lessons.",
-      variants: { S: "", M: "", L: "", XL: "" },
-    },
-  ],
-
-  episodes: [
-    {
-      n: 4,
-      title: "Ghosted after a 5-a-side",
-      desc: "Scored twice, matched once, got ghosted by Sunday noon. Plus: the 3-drink rule that actually works.",
-      length: "47 min",
-      date: "Sun · Week 4",
-      tags: ["dating", "sport"],
-    },
-    {
-      n: 3,
-      title: "Half-marathon, full hangover",
-      desc: "Can you run a race the morning after a birthday? We tried. Science and shame included.",
-      length: "52 min",
-      date: "Sun · Week 3",
-      tags: ["sport", "hangover"],
-    },
-    {
-      n: 2,
-      title: "The Monday Reset protocol",
-      desc: "Sleep, electrolytes, meal prep and a phone detox: our 5-step plan to survive Monday after a big weekend.",
-      length: "44 min",
-      date: "Sun · Week 2",
-      tags: ["balance"],
-    },
-    {
-      n: 1,
-      title: "Welcome to the Wild Child",
-      desc: "Who we are, why Sunday, and the weekend that made us start this podcast.",
-      length: "39 min",
-      date: "Sun · Week 1",
-      tags: ["story"],
-    },
-  ],
+  ...safeSettings,
+  brand: { name: 'WILD CHILD' },
+  products: allProducts.filter((p) => p.published && !productProblems(p).length),
+  episodes: allEpisodes
+    .filter((e) => e.published && !episodeProblems(e).length)
+    .sort((a, b) => b.n - a.n),
 };

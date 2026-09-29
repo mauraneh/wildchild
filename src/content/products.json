@@ -1,0 +1,344 @@
+{
+  "products": [
+    {
+      "id": "sore-sorry-tee",
+      "published": true,
+      "type": "tee",
+      "category": "apparel",
+      "price": 32,
+      "color": "#fff8ee",
+      "ink": "#0f0e17",
+      "print": "SORE & SORRY",
+      "image": "",
+      "name": {
+        "fr": "T-shirt Sore & Sorry",
+        "en": "Sore & Sorry Tee",
+        "es": "Camiseta Sore & Sorry",
+        "pt": "T-shirt Sore & Sorry"
+      },
+      "badge": {
+        "fr": "Best-seller",
+        "en": "Bestseller",
+        "es": "Más vendido",
+        "pt": "Mais vendido"
+      },
+      "description": {
+        "fr": "T-shirt épais en coton bio. Pour le dimanche qui paie les erreurs du samedi.",
+        "en": "Heavyweight organic cotton tee. For the Sunday that pays for Saturday’s mistakes.",
+        "es": "Camiseta gruesa de algodón orgánico. Para el domingo que paga los errores del sábado.",
+        "pt": "T-shirt grossa de algodão orgânico. Para o domingo que paga os erros de sábado."
+      },
+      "variants": [
+        {
+          "size": "S",
+          "shopifyId": ""
+        },
+        {
+          "size": "M",
+          "shopifyId": ""
+        },
+        {
+          "size": "L",
+          "shopifyId": ""
+        },
+        {
+          "size": "XL",
+          "shopifyId": ""
+        },
+        {
+          "size": "XXL",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "recovery-hoodie",
+      "published": true,
+      "type": "hoodie",
+      "category": "apparel",
+      "price": 59,
+      "color": "#0f0e17",
+      "ink": "#c6f432",
+      "print": "RECOVERY CLUB",
+      "image": "",
+      "name": {
+        "fr": "Sweat Recovery Club",
+        "en": "Recovery Club Hoodie",
+        "es": "Sudadera Recovery Club",
+        "pt": "Sweat Recovery Club"
+      },
+      "badge": {
+        "fr": "Nouveau",
+        "en": "New",
+        "es": "Nuevo",
+        "pt": "Novo"
+      },
+      "description": {
+        "fr": "Molleton tout doux, coupe oversize. La tenue officielle du canapé du dimanche.",
+        "en": "Soft brushed fleece, oversized fit. The official uniform of the Sunday couch.",
+        "es": "Felpa suavecita, corte oversize. El uniforme oficial del sofá del domingo.",
+        "pt": "Felpa macia, corte oversize. A farda oficial do sofá de domingo."
+      },
+      "variants": [
+        {
+          "size": "S",
+          "shopifyId": ""
+        },
+        {
+          "size": "M",
+          "shopifyId": ""
+        },
+        {
+          "size": "L",
+          "shopifyId": ""
+        },
+        {
+          "size": "XL",
+          "shopifyId": ""
+        },
+        {
+          "size": "XXL",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "wild-child-cap",
+      "published": true,
+      "type": "cap",
+      "category": "accessories",
+      "price": 28,
+      "color": "#ff6b35",
+      "ink": "#fff8ee",
+      "print": "WILD CHILD",
+      "image": "",
+      "name": {
+        "fr": "Casquette Wild Child",
+        "en": "Wild Child Dad Cap",
+        "es": "Gorra Wild Child",
+        "pt": "Boné Wild Child"
+      },
+      "badge": {
+        "fr": "",
+        "en": "",
+        "es": "",
+        "pt": ""
+      },
+      "description": {
+        "fr": "Casquette brodée en coton délavé. Cache les cernes, pas les regrets.",
+        "en": "Embroidered washed-cotton cap. Hides the dark circles, not the regrets.",
+        "es": "Gorra bordada de algodón lavado. Esconde las ojeras, no los remordimientos.",
+        "pt": "Boné bordado de algodão lavado. Esconde as olheiras, não os arrependimentos."
+      },
+      "variants": [
+        {
+          "size": "One size",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "monday-reset-mug",
+      "published": true,
+      "type": "mug",
+      "category": "home",
+      "price": 18,
+      "color": "#fff8ee",
+      "ink": "#ff3d7f",
+      "print": "MONDAY RESET",
+      "image": "",
+      "name": {
+        "fr": "Mug Monday Reset",
+        "en": "Monday Reset Mug",
+        "es": "Taza Monday Reset",
+        "pt": "Caneca Monday Reset"
+      },
+      "badge": {
+        "fr": "",
+        "en": "",
+        "es": "",
+        "pt": ""
+      },
+      "description": {
+        "fr": "Céramique 33 cl. D’abord le café. Les mails, on verra.",
+        "en": "11 oz ceramic. Coffee first. E-mails, maybe later.",
+        "es": "Cerámica de 33 cl. Primero el café. Los correos, ya veremos.",
+        "pt": "Cerâmica de 33 cl. Primeiro o café. Os e-mails, logo se vê."
+      },
+      "variants": [
+        {
+          "size": "11oz",
+          "shopifyId": ""
+        },
+        {
+          "size": "15oz",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "hydrate-bottle",
+      "published": true,
+      "type": "bottle",
+      "category": "accessories",
+      "price": 29,
+      "color": "#c6f432",
+      "ink": "#0f0e17",
+      "print": "HYDRATE",
+      "image": "",
+      "name": {
+        "fr": "Gourde Hydrate or Die",
+        "en": "Hydrate or Die Bottle",
+        "es": "Botella Hydrate or Die",
+        "pt": "Garrafa Hydrate or Die"
+      },
+      "badge": {
+        "fr": "Essentiel",
+        "en": "Essential",
+        "es": "Imprescindible",
+        "pt": "Essencial"
+      },
+      "description": {
+        "fr": "Gourde isotherme en inox. Un verre d’eau entre chaque verre. On sait, tu ne le feras pas.",
+        "en": "Insulated stainless-steel bottle. A glass of water between every drink. We know, you won’t.",
+        "es": "Botella térmica de acero inoxidable. Un vaso de agua entre copa y copa. Lo sabemos, no lo harás.",
+        "pt": "Garrafa térmica em aço inoxidável. Um copo de água entre cada copo. Nós sabemos, não vais fazer isso."
+      },
+      "variants": [
+        {
+          "size": "750ml",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "swipe-report-tote",
+      "published": true,
+      "type": "tote",
+      "category": "accessories",
+      "price": 22,
+      "color": "#ff3d7f",
+      "ink": "#fff8ee",
+      "print": "SWIPE REPORT",
+      "image": "",
+      "name": {
+        "fr": "Tote bag Swipe Report",
+        "en": "Swipe Report Tote",
+        "es": "Tote bag Swipe Report",
+        "pt": "Tote bag Swipe Report"
+      },
+      "badge": {
+        "fr": "",
+        "en": "",
+        "es": "",
+        "pt": ""
+      },
+      "description": {
+        "fr": "Tote en toile épaisse pour tes affaires de sport, ta tenue de date, ou juste tes excuses.",
+        "en": "Heavy canvas tote for your gym kit, your date outfit, or just your excuses.",
+        "es": "Tote de lona gruesa para la ropa del gym, el look de la cita o solo tus excusas.",
+        "pt": "Tote de lona grossa para a roupa do ginásio, o look do encontro ou só as tuas desculpas."
+      },
+      "variants": [
+        {
+          "size": "One size",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "scoreboard-tee",
+      "published": true,
+      "type": "tee",
+      "category": "apparel",
+      "price": 32,
+      "color": "#ff6b35",
+      "ink": "#0f0e17",
+      "print": "SCOREBOARD",
+      "image": "",
+      "name": {
+        "fr": "T-shirt Scoreboard",
+        "en": "Scoreboard Tee",
+        "es": "Camiseta Scoreboard",
+        "pt": "T-shirt Scoreboard"
+      },
+      "badge": {
+        "fr": "",
+        "en": "",
+        "es": "",
+        "pt": ""
+      },
+      "description": {
+        "fr": "T-shirt en coton tout doux. Validé pour la séance de 6h, et pour l’apéro de 19h.",
+        "en": "Super soft cotton tee. Approved for the 6 am session and for 7 pm drinks.",
+        "es": "Camiseta de algodón suavísimo. Aprobada para el entreno de las 6 y para las cañas de las 7.",
+        "pt": "T-shirt de algodão super macio. Aprovada para o treino das 6h e para os copos das 19h."
+      },
+      "variants": [
+        {
+          "size": "S",
+          "shopifyId": ""
+        },
+        {
+          "size": "M",
+          "shopifyId": ""
+        },
+        {
+          "size": "L",
+          "shopifyId": ""
+        },
+        {
+          "size": "XL",
+          "shopifyId": ""
+        }
+      ]
+    },
+    {
+      "id": "sunday-hoodie",
+      "published": true,
+      "type": "hoodie",
+      "category": "apparel",
+      "price": 59,
+      "color": "#ff3d7f",
+      "ink": "#0f0e17",
+      "print": "EVERY SUNDAY",
+      "image": "",
+      "name": {
+        "fr": "Sweat Every Sunday",
+        "en": "Every Sunday Hoodie",
+        "es": "Sudadera Every Sunday",
+        "pt": "Sweat Every Sunday"
+      },
+      "badge": {
+        "fr": "Édition limitée",
+        "en": "Limited",
+        "es": "Edición limitada",
+        "pt": "Edição limitada"
+      },
+      "description": {
+        "fr": "Sweat à capuche bien épais. Même gueule de bois, nouvelles leçons.",
+        "en": "Proper heavy hoodie. Same hangover, new lessons.",
+        "es": "Sudadera con capucha bien gorda. Misma resaca, nuevas lecciones.",
+        "pt": "Sweat com capuz bem grossa. A mesma ressaca, novas lições."
+      },
+      "variants": [
+        {
+          "size": "S",
+          "shopifyId": ""
+        },
+        {
+          "size": "M",
+          "shopifyId": ""
+        },
+        {
+          "size": "L",
+          "shopifyId": ""
+        },
+        {
+          "size": "XL",
+          "shopifyId": ""
+        }
+      ]
+    }
+  ]
+}

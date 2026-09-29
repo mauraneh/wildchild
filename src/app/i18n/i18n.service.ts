@@ -1,6 +1,6 @@
 import { DOCUMENT, Injectable, computed, effect, inject, signal } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { Product } from '../core/site.config';
+import { Localized, Product } from '../core/site.config';
 import { en } from './en';
 import { es } from './es';
 import { Dict, fr } from './fr';
@@ -48,15 +48,27 @@ export class I18nService {
     this.lang.set(lang);
   }
 
+  /** Picks the current language from admin-edited content, falling back to French. */
+  loc(text: Localized): string {
+    return text[this.lang()] || text.fr;
+  }
+
   productName(p: Product): string {
-    return this.t().products[p.id]?.name ?? p.name;
+    return this.loc(p.name);
   }
 
   productText(p: Product): { name: string; badge: string; description: string } {
-    return this.t().products[p.id] ?? { name: p.name, badge: p.badge, description: p.description };
+    return { name: this.loc(p.name), badge: this.loc(p.badge), description: this.loc(p.description) };
   }
 
-  /** Size labels are stored in English in site.config.ts; only "One size" needs translating. */
+  /** "2026-09-27" → "dim. 27 sept." in the current language. */
+  formatDate(iso: string): string {
+    return new Intl.DateTimeFormat(this.t().meta.locale, { weekday: 'short', day: 'numeric', month: 'short' }).format(
+      new Date(`${iso}T12:00:00`),
+    );
+  }
+
+  /** Size labels are stored in English in the content; only "One size" needs translating. */
   variantLabel(variant: string): string {
     return variant === 'One size' ? this.t().product.oneSize : variant;
   }

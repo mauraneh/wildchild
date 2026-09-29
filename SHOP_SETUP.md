@@ -42,13 +42,8 @@ times, no real branding, inconsistent quality — bad for a young community bran
 5. Get each **variant ID** from Shopify:
    Admin → Products → open a product → click a variant → the URL ends with
    `/variants/1234567890` — that number is the variant ID.
-6. Edit **`src/app/core/site.config.ts`**:
-   ```js
-   shop: { domain: "your-store.myshopify.com", currency: "EUR", ... },
-   products: [
-     { id: "sore-sorry-tee", ..., variants: { S: "44112233", M: "44112234", ... } },
-   ]
-   ```
+6. Open the **admin** (`/admin`, see `ADMIN.md`): put your store domain in
+   **Réglages → Boutique**, and each size's variant ID in **Merch**.
 7. Done. When a customer clicks **Checkout**, the site builds a Shopify cart
    link (`https://your-store.myshopify.com/cart/VARIANT:QTY,VARIANT:QTY`) and
    sends them to Shopify's secure checkout (cards, Apple Pay, Google Pay, Shop

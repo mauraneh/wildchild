@@ -5,6 +5,7 @@ hangovers and how to keep it all in balance after a week at work.
 
 - **Brand, name & storytelling:** [`BRAND.md`](BRAND.md)
 - **Shop / dropshipping setup:** [`SHOP_SETUP.md`](SHOP_SETUP.md)
+- **Admin (episodes, merch, settings) & security:** [`ADMIN.md`](ADMIN.md), at `/admin`
 
 ## Stack
 
@@ -32,13 +33,14 @@ anti-spam honeypot).
 - **Default (no setup):** the form opens the visitor's mail app with the
   question pre-filled, addressed to `brand.email`.
 - **Recommended:** create a free form on [Formspree](https://formspree.io)
-  and paste its URL in `questionsEndpoint` in `src/app/core/site.config.ts`.
+  and paste its URL in **Réglages → Formulaire « Pose ta question »** in the admin.
   Questions are then sent in one click and land in your inbox (with topic,
   language and anonymity choice), ready to pick for Sunday's episode.
 
 ```
 src/app/i18n/                 ← edit this: all texts in FR / EN / ES / PT
-src/app/core/site.config.ts   ← edit this: links, prices, variants, Shopify store
+src/content/*.json            ← episodes, products, settings (edit them from /admin)
+src/app/core/site.config.ts   Content types + validation (also run by CI)
 src/app/core/cart.service.ts  Cart (signals + localStorage) and Shopify checkout link
 src/app/core/ui.service.ts    Menu / cart drawer / product sheet / toast state
 src/app/layout/               Header (+ mobile menu) and footer

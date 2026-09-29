@@ -22,6 +22,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "sveltia-cms.js",
+                "input": "node_modules/@sveltia/cms/dist",
+                "output": "admin"
+              },
+              {
+                "glob": "chunks/*.js",
+                "input": "node_modules/@sveltia/cms/dist",
+                "output": "admin"
               }
             ],
             "styles": [
@@ -42,7 +52,12 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": { "minify": true, "inlineCritical": false },
+                "fonts": true
+              }
             },
             "development": {
               "optimization": false,

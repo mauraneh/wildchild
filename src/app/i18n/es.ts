@@ -69,6 +69,8 @@ export const es: Dict = {
       sunday: 'Dom · Semana',
       listen: '▶ Escuchar',
       listenTo: 'Escuchar el episodio',
+      watch: '▶ Ver',
+      watchOn: 'Ver el episodio',
     },
     hosts: {
       eyebrow: 'El reparto',
@@ -169,7 +171,7 @@ export const es: Dict = {
     subtotal: 'Subtotal',
     fine: 'Envío e impuestos calculados al pagar. Impreso bajo demanda, entrega en 3 a 7 días.',
     checkout: 'Pagar →',
-    demo: 'Modo demo: conecta tu tienda Shopify y los IDs de variantes en src/app/core/site.config.ts para aceptar pedidos reales (ver SHOP_SETUP.md).',
+    demo: 'Modo demo: añade el dominio de Shopify y los IDs de variantes en el admin (Ajustes y Merch) para aceptar pedidos reales.',
   },
   footer: {
     listen: 'Escuchar',
@@ -178,21 +180,5 @@ export const es: Dict = {
     newsletter: 'Newsletter',
     rights: 'Wild Child. Bebe con moderación. Y con nuestros consejos, más todavía.',
     madeOn: 'Hecho un domingo, entre dos mimosas ☀️',
-  },
-  products: {
-    'sore-sorry-tee': { name: 'Camiseta Sore & Sorry', badge: 'Más vendido', description: 'Camiseta gruesa de algodón orgánico. Para el domingo que paga los errores del sábado.' },
-    'recovery-hoodie': { name: 'Sudadera Recovery Club', badge: 'Nuevo', description: 'Felpa suavecita, corte oversize. El uniforme oficial del sofá del domingo.' },
-    'wild-child-cap': { name: 'Gorra Wild Child', badge: '', description: 'Gorra bordada de algodón lavado. Esconde las ojeras, no los remordimientos.' },
-    'monday-reset-mug': { name: 'Taza Monday Reset', badge: '', description: 'Cerámica de 33 cl. Primero el café. Los correos, ya veremos.' },
-    'hydrate-bottle': { name: 'Botella Hydrate or Die', badge: 'Imprescindible', description: 'Botella térmica de acero inoxidable. Un vaso de agua entre copa y copa. Lo sabemos, no lo harás.' },
-    'swipe-report-tote': { name: 'Tote bag Swipe Report', badge: '', description: 'Tote de lona gruesa para la ropa del gym, el look de la cita o solo tus excusas.' },
-    'scoreboard-tee': { name: 'Camiseta Scoreboard', badge: '', description: 'Camiseta de algodón suavísimo. Aprobada para el entreno de las 6 y para las cañas de las 7.' },
-    'sunday-hoodie': { name: 'Sudadera Every Sunday', badge: 'Edición limitada', description: 'Sudadera con capucha bien gorda. Misma resaca, nuevas lecciones.' },
-  },
-  episodeText: {
-    4: { title: 'Dos goles, un ghosting', desc: 'Dos goles en el fútbol 5, un match en la app y un ghosting antes de comer el domingo. Además: la regla de las 3 copas, que obviamente no cumplimos.' },
-    3: { title: 'Media maratón, resaca entera', desc: '¿Se pueden correr 21 km la mañana después de un cumpleaños? Lo probamos por ti. Ciencia y vergüenza incluidas.' },
-    2: { title: 'El protocolo Reset del lunes', desc: 'Sueño, electrolitos, meal prep y détox del móvil: nuestro plan en 5 pasos para sobrevivir al lunes. Probado una vez. Funcionó una vez.' },
-    1: { title: 'Bienvenidos a Wild Child', desc: 'Quiénes somos, por qué el domingo y el brunch desastroso que nos dio la idea de este podcast.' },
   },
 };

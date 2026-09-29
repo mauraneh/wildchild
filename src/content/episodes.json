@@ -1,0 +1,98 @@
+{
+  "episodes": [
+    {
+      "n": 4,
+      "published": true,
+      "date": "2026-09-27",
+      "length": "47 min",
+      "tags": [
+        "dating",
+        "sport"
+      ],
+      "spotify": "",
+      "youtube": "",
+      "title": {
+        "fr": "Deux buts, un ghosting",
+        "en": "Two goals, one ghosting",
+        "es": "Dos goles, un ghosting",
+        "pt": "Dois golos, um ghosting"
+      },
+      "desc": {
+        "fr": "Deux buts au five, un match sur l’appli et un ghosting avant midi dimanche. Plus : la règle des 3 verres, qu’on n’a évidemment pas respectée.",
+        "en": "Two goals at five-a-side, one match on the app and a ghosting before Sunday lunch. Plus: the 3-drink rule, which we obviously ignored.",
+        "es": "Dos goles en el fútbol 5, un match en la app y un ghosting antes de comer el domingo. Además: la regla de las 3 copas, que obviamente no cumplimos.",
+        "pt": "Dois golos na futebolada, um match na app e um ghosting antes do almoço de domingo. E ainda: a regra dos 3 copos, que obviamente não cumprimos."
+      }
+    },
+    {
+      "n": 3,
+      "published": true,
+      "date": "2026-09-20",
+      "length": "52 min",
+      "tags": [
+        "sport",
+        "hangover"
+      ],
+      "spotify": "",
+      "youtube": "",
+      "title": {
+        "fr": "Semi-marathon, gueule de bois intégrale",
+        "en": "Half-marathon, full hangover",
+        "es": "Media maratón, resaca entera",
+        "pt": "Meia maratona, ressaca inteira"
+      },
+      "desc": {
+        "fr": "Peut-on courir 21 km le lendemain d’un anniversaire ? On a testé pour toi. Science et honte incluses.",
+        "en": "Can you run 21 km the morning after a birthday? We tested it so you don’t have to. Science and shame included.",
+        "es": "¿Se pueden correr 21 km la mañana después de un cumpleaños? Lo probamos por ti. Ciencia y vergüenza incluidas.",
+        "pt": "Dá para correr 21 km na manhã a seguir a um aniversário? Testámos por ti. Ciência e vergonha incluídas."
+      }
+    },
+    {
+      "n": 2,
+      "published": true,
+      "date": "2026-09-13",
+      "length": "44 min",
+      "tags": [
+        "balance"
+      ],
+      "spotify": "",
+      "youtube": "",
+      "title": {
+        "fr": "Le protocole Reset du lundi",
+        "en": "The Monday Reset protocol",
+        "es": "El protocolo Reset del lunes",
+        "pt": "O protocolo Reset de segunda"
+      },
+      "desc": {
+        "fr": "Sommeil, électrolytes, meal prep et détox du téléphone : notre plan en 5 étapes pour survivre au lundi. Testé une fois. Ça a marché une fois.",
+        "en": "Sleep, electrolytes, meal prep and a phone detox: our 5-step plan to survive Monday. Tested once. Worked once.",
+        "es": "Sueño, electrolitos, meal prep y détox del móvil: nuestro plan en 5 pasos para sobrevivir al lunes. Probado una vez. Funcionó una vez.",
+        "pt": "Sono, eletrólitos, meal prep e détox do telemóvel: o nosso plano em 5 passos para sobreviver à segunda. Testado uma vez. Resultou uma vez."
+      }
+    },
+    {
+      "n": 1,
+      "published": true,
+      "date": "2026-09-06",
+      "length": "39 min",
+      "tags": [
+        "story"
+      ],
+      "spotify": "",
+      "youtube": "",
+      "title": {
+        "fr": "Bienvenue chez Wild Child",
+        "en": "Welcome to Wild Child",
+        "es": "Bienvenidos a Wild Child",
+        "pt": "Bem-vindos ao Wild Child"
+      },
+      "desc": {
+        "fr": "Qui on est, pourquoi le dimanche, et le brunch catastrophique qui nous a donné l’idée de ce podcast.",
+        "en": "Who we are, why Sunday, and the disaster of a brunch that gave us the idea for this podcast.",
+        "es": "Quiénes somos, por qué el domingo y el brunch desastroso que nos dio la idea de este podcast.",
+        "pt": "Quem somos, porquê o domingo e o brunch desastroso que nos deu a ideia para este podcast."
+      }
+    }
+  ]
+}

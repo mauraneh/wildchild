@@ -1,0 +1,165 @@
+# Wild Child admin (Sveltia CMS). Every save = a Git commit on GitHub, then CI tests the
+# content and deploys the site (~1-2 min). Nothing is stored anywhere else.
+# Security model: see ADMIN.md.
+
+backend:
+  name: github
+  repo: mauraneh/wildchild
+  # The branch that GitHub Pages deploys. Change to "main" once main is the live branch.
+  branch: claude/podcast-dropship-site-0vkyr6
+  # Optional "Sign in with GitHub" button: deploy the sveltia-cms-auth worker and put its URL here.
+  # Until then, sign in with a fine-grained personal access token (see ADMIN.md).
+  # base_url: https://wildchild-cms-auth.<your-account>.workers.dev
+  commit_messages:
+    create: 'admin: create {{collection}} “{{slug}}”'
+    update: 'admin: update {{collection}} “{{slug}}”'
+    delete: 'admin: delete {{collection}} “{{slug}}”'
+    uploadMedia: 'admin: upload “{{path}}”'
+    deleteMedia: 'admin: delete “{{path}}”'
+
+site_url: https://mauraneh.github.io/wildchild/
+display_url: https://mauraneh.github.io/wildchild/
+locale: fr
+
+media_folder: public/uploads
+public_folder: uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 2000000 # 2 MB, keep the site fast on mobile
+
+# Reusable 4-language text fields
+_fields:
+  short: &short
+    widget: object
+    collapsed: false
+    fields:
+      - { name: fr, label: Français, widget: string }
+      - { name: en, label: English, widget: string }
+      - { name: es, label: Español, widget: string }
+      - { name: pt, label: Português, widget: string }
+  shortOptional: &shortOptional
+    widget: object
+    collapsed: true
+    fields:
+      - { name: fr, label: Français, widget: string, required: false }
+      - { name: en, label: English, widget: string, required: false }
+      - { name: es, label: Español, widget: string, required: false }
+      - { name: pt, label: Português, widget: string, required: false }
+  long: &long
+    widget: object
+    collapsed: false
+    fields:
+      - { name: fr, label: Français, widget: text }
+      - { name: en, label: English, widget: text }
+      - { name: es, label: Español, widget: text }
+      - { name: pt, label: Português, widget: text }
+  link: &link
+    widget: string
+    required: false
+    pattern: ['^(#|https://[^\s"''<>]+)?$', 'Lien complet commençant par https://']
+  hex: &hex
+    widget: string
+    pattern: ['^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$', 'Couleur au format #rrggbb, ex. #ff3d7f']
+
+collections:
+  - name: episodes
+    label: Épisodes
+    icon: mic
+    files:
+      - name: episodes
+        label: Tous les épisodes
+        file: src/content/episodes.json
+        format: json
+        fields:
+          - name: episodes
+            label: Épisodes
+            label_singular: Épisode
+            widget: list
+            add_to_top: true
+            summary: 'Ép. {{fields.n}} · {{fields.title.fr}}'
+            fields:
+              - { name: n, label: Numéro, widget: number, value_type: int, min: 0 }
+              - { name: published, label: Publié sur le site, widget: boolean, default: true }
+              - { name: date, label: Date de sortie, widget: datetime, time_format: false, format: YYYY-MM-DD, date_format: DD/MM/YYYY }
+              - { name: length, label: 'Durée (ex. 47 min)', widget: string, required: false }
+              - { name: tags, label: 'Tags (ex. dating, sport)', widget: list, required: false, default: [] }
+              - { <<: *link, name: spotify, label: 'Lien Spotify de l’épisode (bouton Écouter)' }
+              - { <<: *link, name: youtube, label: 'Lien YouTube de l’épisode (bouton Voir)' }
+              - { <<: *short, name: title, label: Titre }
+              - { <<: *long, name: desc, label: Description }
+
+  - name: merch
+    label: Merch
+    icon: checkroom
+    files:
+      - name: products
+        label: Produits de la boutique
+        file: src/content/products.json
+        format: json
+        fields:
+          - name: products
+            label: Produits
+            label_singular: Produit
+            widget: list
+            summary: '{{fields.name.fr}} · {{fields.price}} €'
+            hint: 'Les 3 premiers produits de la liste apparaissent sur l’accueil. Glisse-dépose pour changer l’ordre.'
+            fields:
+              - { name: id, label: 'Identifiant (minuscules-avec-tirets, ne plus changer après la première vente)', widget: string, pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Minuscules, chiffres et tirets uniquement'] }
+              - { name: published, label: En vente sur le site, widget: boolean, default: true }
+              - { name: price, label: 'Prix affiché (€). Le prix réellement payé est celui de Shopify', widget: number, value_type: float, min: 1, max: 9999 }
+              - { name: category, label: Catégorie, widget: select, options: [{ label: Vêtements, value: apparel }, { label: Accessoires, value: accessories }, { label: Maison, value: home }] }
+              - { name: image, label: 'Photo (JPG/PNG/WebP, carrée, 2 Mo max). Vide = dessin automatique', widget: image, required: false, accept: 'image/jpeg,image/png,image/webp' }
+              - { <<: *short, name: name, label: Nom }
+              - { <<: *shortOptional, name: badge, label: 'Badge (ex. Nouveau). Optionnel' }
+              - { <<: *long, name: description, label: Description }
+              - name: variants
+                label: Tailles / variantes
+                label_singular: Taille
+                widget: list
+                summary: '{{fields.size}} · Shopify {{fields.shopifyId}}'
+                fields:
+                  - { name: size, label: 'Taille (S, M, L… ou One size)', widget: string }
+                  - { name: shopifyId, label: 'ID de variante Shopify (chiffres, vide = mode démo)', widget: string, required: false, pattern: ['^\d*$', 'Chiffres uniquement'] }
+              - name: type
+                label: 'Dessin automatique : forme'
+                widget: select
+                options: [{ label: T-shirt, value: tee }, { label: Sweat, value: hoodie }, { label: Casquette, value: cap }, { label: Mug, value: mug }, { label: Gourde, value: bottle }, { label: Tote bag, value: tote }]
+              - { <<: *hex, name: color, label: 'Dessin automatique : couleur du produit' }
+              - { <<: *hex, name: ink, label: 'Dessin automatique : couleur du texte' }
+              - { name: print, label: 'Dessin automatique : texte imprimé (24 caractères max)', widget: string, pattern: ['^.{1,24}$', '24 caractères maximum'] }
+
+  - name: settings
+    label: Réglages
+    icon: settings
+    files:
+      - name: settings
+        label: Liens, boutique et formulaires
+        file: src/content/settings.json
+        format: json
+        fields:
+          - { name: email, label: E-mail de contact, widget: string, pattern: ['^[^\s@"<>]+@[^\s@"<>]+\.[^\s@"<>]+$', 'E-mail invalide'] }
+          - name: listen
+            label: Où écouter
+            widget: object
+            fields:
+              - { <<: *link, name: spotify, label: Spotify }
+              - { <<: *link, name: apple, label: Apple Podcasts }
+              - { <<: *link, name: youtube, label: 'YouTube (chaîne, utilisé pour « Voir » si l’épisode n’a pas de lien)' }
+              - { <<: *link, name: deezer, label: Deezer }
+          - name: social
+            label: Réseaux sociaux
+            widget: object
+            fields:
+              - { <<: *link, name: instagram, label: Instagram }
+              - { <<: *link, name: tiktok, label: TikTok }
+              - { <<: *link, name: youtube, label: YouTube }
+          - { <<: *link, name: newsletterEndpoint, label: 'Formulaire newsletter (URL Brevo, Mailchimp…)' }
+          - { <<: *link, name: questionsEndpoint, label: 'Formulaire « Pose ta question » (URL Formspree)' }
+          - name: shop
+            label: Boutique
+            widget: object
+            fields:
+              - { name: domain, label: 'Domaine Shopify (ex. wildchild.myshopify.com). Vide = mode démo', widget: string, required: false, pattern: ['^([a-z0-9-]+\.myshopify\.com)?$', 'Doit finir par .myshopify.com'] }
+              - { name: currency, label: 'Devise (code à 3 lettres)', widget: string, pattern: ['^[A-Z]{3}$', 'Ex. EUR'] }
+              - { name: freeShippingFrom, label: 'Livraison offerte à partir de (€)', widget: number, value_type: int, min: 0 }

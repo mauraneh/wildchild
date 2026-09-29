@@ -1,4 +1,7 @@
-import { Product } from '../core/site.config';
+import { HEX_COLOR, Product } from '../core/site.config';
+
+/** Colors go straight into SVG attributes: only strict hex values are allowed. */
+const safeColor = (c: string, fallback: string) => (HEX_COLOR.test(c) ? c : fallback);
 
 export const esc = (s: string | number): string =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
@@ -12,7 +15,9 @@ function printText(text: string, x: number, y: number, maxW: number, ink: string
 
 /** Renders a product mockup as an SVG string (no image files needed). */
 export function mockupSvg(p: Product): string {
-  const { type, color, ink, print } = p;
+  const { type, print } = p;
+  const color = safeColor(p.color, '#fff8ee');
+  const ink = safeColor(p.ink, '#0f0e17');
   const stroke = "rgba(0,0,0,.18)";
   let body = "";
   switch (type) {
@@ -57,7 +62,7 @@ export function mockupSvg(p: Product): string {
       break;
   }
   const bg = color.toLowerCase() === "#0f0e17" ? "#2a2937" : "#1b1a26";
-  return `<svg viewBox="0 0 400 400" role="img" aria-label="${esc(p.name)}" xmlns="http://www.w3.org/2000/svg">
+  return `<svg viewBox="0 0 400 400" role="img" aria-label="${esc(print)}" xmlns="http://www.w3.org/2000/svg">
     <rect width="400" height="400" fill="${bg}"/>
     <circle cx="200" cy="210" r="150" fill="rgba(255,255,255,.04)"/>
     ${body}</svg>`;

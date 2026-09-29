@@ -1,0 +1,21 @@
+{
+  "email": "hello@wildchildpodcast.com",
+  "listen": {
+    "spotify": "#",
+    "apple": "#",
+    "youtube": "#",
+    "deezer": "#"
+  },
+  "social": {
+    "instagram": "#",
+    "tiktok": "#",
+    "youtube": "#"
+  },
+  "newsletterEndpoint": "",
+  "questionsEndpoint": "",
+  "shop": {
+    "domain": "",
+    "currency": "EUR",
+    "freeShippingFrom": 60
+  }
+}

@@ -69,6 +69,8 @@ export const en: Dict = {
       sunday: 'Sun · Week',
       listen: '▶ Listen',
       listenTo: 'Listen to episode',
+      watch: '▶ Watch',
+      watchOn: 'Watch episode',
     },
     hosts: {
       eyebrow: 'The cast',
@@ -169,7 +171,7 @@ export const en: Dict = {
     subtotal: 'Subtotal',
     fine: 'Shipping and taxes calculated at checkout. Printed on demand, delivered in 3 to 7 days.',
     checkout: 'Checkout →',
-    demo: 'Demo mode: connect your Shopify store and variant IDs in src/app/core/site.config.ts to take real orders (see SHOP_SETUP.md).',
+    demo: 'Demo mode: add your Shopify domain and variant IDs in the admin (Settings and Merch) to take real orders.',
   },
   footer: {
     listen: 'Listen',
@@ -178,21 +180,5 @@ export const en: Dict = {
     newsletter: 'Newsletter',
     rights: 'Wild Child. Please drink responsibly. Our advice, even more so.',
     madeOn: 'Made on a Sunday, between two mimosas ☀️',
-  },
-  products: {
-    'sore-sorry-tee': { name: 'Sore & Sorry Tee', badge: 'Bestseller', description: 'Heavyweight organic cotton tee. For the Sunday that pays for Saturday’s mistakes.' },
-    'recovery-hoodie': { name: 'Recovery Club Hoodie', badge: 'New', description: 'Soft brushed fleece, oversized fit. The official uniform of the Sunday couch.' },
-    'wild-child-cap': { name: 'Wild Child Dad Cap', badge: '', description: 'Embroidered washed-cotton cap. Hides the dark circles, not the regrets.' },
-    'monday-reset-mug': { name: 'Monday Reset Mug', badge: '', description: '11 oz ceramic. Coffee first. E-mails, maybe later.' },
-    'hydrate-bottle': { name: 'Hydrate or Die Bottle', badge: 'Essential', description: 'Insulated stainless-steel bottle. A glass of water between every drink. We know, you won’t.' },
-    'swipe-report-tote': { name: 'Swipe Report Tote', badge: '', description: 'Heavy canvas tote for your gym kit, your date outfit, or just your excuses.' },
-    'scoreboard-tee': { name: 'Scoreboard Tee', badge: '', description: 'Super soft cotton tee. Approved for the 6 am session and for 7 pm drinks.' },
-    'sunday-hoodie': { name: 'Every Sunday Hoodie', badge: 'Limited', description: 'Proper heavy hoodie. Same hangover, new lessons.' },
-  },
-  episodeText: {
-    4: { title: 'Two goals, one ghosting', desc: 'Two goals at five-a-side, one match on the app and a ghosting before Sunday lunch. Plus: the 3-drink rule, which we obviously ignored.' },
-    3: { title: 'Half-marathon, full hangover', desc: 'Can you run 21 km the morning after a birthday? We tested it so you don’t have to. Science and shame included.' },
-    2: { title: 'The Monday Reset protocol', desc: 'Sleep, electrolytes, meal prep and a phone detox: our 5-step plan to survive Monday. Tested once. Worked once.' },
-    1: { title: 'Welcome to Wild Child', desc: 'Who we are, why Sunday, and the disaster of a brunch that gave us the idea for this podcast.' },
   },
 };

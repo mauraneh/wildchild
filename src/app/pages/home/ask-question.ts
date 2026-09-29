@@ -25,7 +25,7 @@ export class AskQuestion {
   protected readonly i18n = inject(I18nService);
   protected readonly topics = TOPICS;
   protected readonly maxLength = MAX_LENGTH;
-  protected readonly email = SITE.brand.email;
+  protected readonly email = SITE.email;
 
   protected readonly name = signal('');
   protected readonly topic = signal<Topic>('dating');

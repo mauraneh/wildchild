@@ -94,18 +94,21 @@
     </div>
     <div class="episodes">
       @for (e of site.episodes; track e.n) {
-        @let et = t.episodeText[e.n];
         <article class="episode">
           <div class="episode-num" aria-hidden="true">{{ e.n < 10 ? '0' + e.n : e.n }}</div>
           <div>
             <div class="episode-meta">
-              <span>{{ h.episodes.ep }} {{ e.n }}</span><span>{{ h.episodes.sunday }} {{ e.n }}</span><span>{{ e.length }}</span>
+              <span>{{ h.episodes.ep }} {{ e.n }}</span><span>{{ i18n.formatDate(e.date) }}</span>
+              @if (e.length) {<span>{{ e.length }}</span>}
               @for (tag of e.tags; track tag) {<span class="tag">#{{ tag }}</span>}
             </div>
-            <h3>{{ et.title }}</h3>
-            <p>{{ et.desc }}</p>
+            <h3>{{ i18n.loc(e.title) }}</h3>
+            <p>{{ i18n.loc(e.desc) }}</p>
           </div>
-          <a class="btn btn-ghost play" [href]="site.listen.spotify" target="_blank" rel="noopener" [attr.aria-label]="h.episodes.listenTo + ' ' + e.n">{{ h.episodes.listen }}</a>
+          <div class="episode-actions">
+            <a class="btn btn-ghost play" [href]="e.spotify || site.listen.spotify" target="_blank" rel="noopener" [attr.aria-label]="h.episodes.listenTo + ' ' + e.n">{{ h.episodes.listen }}</a>
+            <a class="btn btn-ghost play watch" [href]="e.youtube || site.listen.youtube" target="_blank" rel="noopener" [attr.aria-label]="h.episodes.watchOn + ' ' + e.n">{{ h.episodes.watch }}</a>
+          </div>
         </article>
       }
     </div>

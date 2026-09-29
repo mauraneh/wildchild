@@ -24,6 +24,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Security audit (production dependencies)
+        run: npm audit --omit=dev --audit-level=high
       - run: npm test -- --watch=false
       - name: Build
         run: npx ng build --base-href "/${{ github.event.repository.name }}/"

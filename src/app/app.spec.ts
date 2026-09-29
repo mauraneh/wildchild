@@ -52,9 +52,9 @@ describe('Translations', () => {
   });
 
   it('cover every product and episode in every language', () => {
-    for (const dict of [fr, en, es, pt]) {
-      for (const p of SITE.products) expect(dict.products[p.id]?.name).toBeTruthy();
-      for (const e of SITE.episodes) expect(dict.episodeText[e.n]?.title).toBeTruthy();
+    for (const lang of ['fr', 'en', 'es', 'pt'] as const) {
+      for (const p of SITE.products) expect(p.name[lang]).toBeTruthy();
+      for (const e of SITE.episodes) expect(e.title[lang]).toBeTruthy();
     }
   });
 });

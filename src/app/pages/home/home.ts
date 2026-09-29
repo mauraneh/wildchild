@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { findProduct } from '../../core/cart.service';
-import { Product, SITE } from '../../core/site.config';
+import { SITE } from '../../core/site.config';
 import { I18nService } from '../../i18n/i18n.service';
 import { Mockup } from '../../shared/mockup.component';
 import { AskQuestion } from './ask-question';
@@ -20,9 +19,8 @@ export class Home {
     { icon: '💘', color: 'var(--pink)' },
     { icon: '🎙️', color: 'var(--sunrise)' },
   ];
-  protected readonly teaser = ['sore-sorry-tee', 'recovery-hoodie', 'wild-child-cap']
-    .map(findProduct)
-    .filter((p): p is Product => !!p);
+  // The first three products in the admin's list are shown on the home page.
+  protected readonly teaser = SITE.products.slice(0, 3);
   protected readonly newsletterState = signal<'invalid' | 'thanks' | null>(null);
 
   constructor() {
