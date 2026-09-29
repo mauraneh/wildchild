@@ -69,8 +69,8 @@ first family dinner.
 
 | Host | Role |
 |---|---|
-| **Maurane** | Same chaos, lazier. The big cousin. Just as much of a mess as Marie, only a bit older and too lazy for anything. Except the gym at 6 am, where she goes all in so she's earned a drink that night. Official Scoreboard referee. |
-| **Marie** | Serial dating & chaos. The little cousin, basically the little sister. Three apps, two situationships and a rare talent for turning every date into an episode. Hosts *The Swipe Report*. |
+| **Maurane** | Same chaos, lazier. The big cousin. The experience, the dark circles and zero lessons learned. Up at 5:45 for the gym, in bed at 2 after drinks, and calls it "discipline". Gives excellent advice. Mostly to other people. |
+| **Marie** | Serial dating & chaos. The little cousin, basically the little sister. Three apps, two situationships, one ex who has "changed" (spoiler: no). Falls in love on Friday, mentally moves in on Saturday, ghosts on Sunday. Hosts *The Swipe Report* and supplies most of its content. |
 
 ## Listener questions
 
