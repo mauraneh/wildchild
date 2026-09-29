@@ -8,7 +8,7 @@ export const pt: Dict = {
     homeTitle: 'WILD CHILD · O podcast da ressaca de domingo',
     shopTitle: 'Loja · WILD CHILD',
     description:
-      'Uma dupla inseparável, ginásio às 6 da manhã, apps de encontros a mais e um brunch de domingo para analisar tudo. O podcast do caos, do sarcasmo e dos copos que achávamos ter merecido.',
+      'Duas primas inseparáveis, ginásio às 6 da manhã, apps de encontros a mais e um brunch de domingo para analisar tudo. O podcast do caos, do sarcasmo e dos copos que achávamos ter merecido.',
   },
   langName: 'Português',
   show: 'O podcast da ressaca de domingo',
@@ -29,7 +29,7 @@ export const pt: Dict = {
   },
   home: {
     pill: 'Novo episódio todos os domingos, à hora do brunch',
-    lead: 'Há pessoas que têm a vida controlada. E depois há esta dupla. Cinco dias a trabalhar, ginásio às 6h para «merecer» os copos, apps de encontros a mais e um domingo para analisar o desastre. Como um brunch com a tua melhor amizade, mas gravado.',
+    lead: 'Há pessoas que têm a vida controlada. E depois estamos nós. Cinco dias a trabalhar, ginásio às 6h para «merecer» os copos, apps de encontros a mais e um domingo para analisar o desastre. Como um brunch entre primas, mas gravado.',
     listenSpotify: '▶ Ouvir no Spotify',
     coverLabel: 'Capa do podcast Wild Child',
     coverLine1: 'A RESSACA DE DOMINGO',
@@ -37,9 +37,9 @@ export const pt: Dict = {
     marquee: ['Ginásio às 6h', 'Copos às 19h', 'Arrependimento ao meio-dia', 'Brunch de crise', 'Red flags ignoradas', 'Pernas doridas', 'Coração partido'],
     story: {
       eyebrow: 'Quem somos',
-      title1: 'Uma dupla,',
+      title1: 'Duas primas,',
       titleAccent: 'zero plano',
-      lead: 'Numa cidade cheia de gente a fingir que está tudo bem, deixámos de fingir. Somos uma dupla inseparável com empregos sérios, vidas que não o são nada e um ritual sagrado: o brunch de domingo, onde analisamos tudo. Os treinos, os encontros, os copos, as mensagens enviadas às 2 da manhã. Um dia pensámos que devíamos gravar. E aqui estamos.',
+      lead: 'Numa cidade cheia de gente a fingir que está tudo bem, deixámos de fingir. Primas de nascença, irmãs por escolha e cúmplices de todas as más decisões desde o primeiro almoço de família. Empregos sérios, vidas que não o são nada e um ritual sagrado: o brunch de domingo, onde analisamos tudo. Os treinos, os encontros, os copos, as mensagens enviadas às 2 da manhã. Um dia pensámos que devíamos gravar. E aqui estamos.',
       grindDays: 'Segunda → Sexta',
       grindTitle: 'A versão corporate',
       grindText: 'Ginásio às 6h, reunião às 9h, sorriso profissional até às 18h. Ninguém no escritório desconfia de nada.',
@@ -74,8 +74,8 @@ export const pt: Dict = {
       eyebrow: 'O elenco',
       title: 'Quem fala?',
       list: [
-        { role: 'O mesmo caos, mais preguiça', name: 'Maurane', text: 'A mais velha, portanto tecnicamente a voz da sabedoria. Tecnicamente. Tão perdida como Marie, com preguiça de tudo menos do ginásio às 6h, onde dá cabo de si para poder beber à noite. Faz as grandes perguntas existenciais. Não aplica nenhuma resposta.' },
-        { role: 'Encontros em série e caos', name: 'Marie', text: 'Três apps, duas situationships e um ex que «mudou». Transforma cada encontro num episódio e cada episódio num escândalo. Apresenta o Swipe Report. Traz o caos, de borla.' },
+        { role: 'O mesmo caos, mais preguiça', name: 'Maurane', text: 'A prima mais velha, portanto tecnicamente a voz da sabedoria. Tecnicamente. Tão perdida como a Marie, com preguiça de tudo menos do ginásio às 6h, onde dá cabo de si para poder beber à noite. Faz as grandes perguntas existenciais. Não aplica nenhuma resposta.' },
+        { role: 'Encontros em série e caos', name: 'Marie', text: 'A prima mais nova, praticamente a irmã mais nova. Três apps, duas situationships e um ex que «mudou». Transforma cada encontro num episódio e cada episódio num escândalo. Apresenta o Swipe Report. Traz o caos, de borla.' },
         { role: 'Estrelas convidadas', name: 'E tu?', text: 'Treinadores, médicos, bartenders e, sobretudo, vocês. Envia a tua pergunta e analisamo-la como ao brunch. Anonimamente, se tiveres vergonha. Não julgamos. Bem, só um bocadinho.' },
       ],
     },

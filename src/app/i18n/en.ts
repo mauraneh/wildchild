@@ -8,7 +8,7 @@ export const en: Dict = {
     homeTitle: 'WILD CHILD · The Sunday Recovery Show',
     shopTitle: 'Shop · WILD CHILD',
     description:
-      'Two best friends, a 6 am gym habit, way too many dating apps and a Sunday brunch to debrief it all. The podcast of chaos, sarcasm and drinks we thought we’d earned.',
+      'Two cousins, a 6 am gym habit, way too many dating apps and a Sunday brunch to debrief it all. The podcast of chaos, sarcasm and drinks we thought we’d earned.',
   },
   langName: 'English',
   show: 'The Sunday Recovery Show',
@@ -29,7 +29,7 @@ export const en: Dict = {
   },
   home: {
     pill: 'New episode every Sunday, right around brunch',
-    lead: 'Some people have their lives together. And then there’s us. Five days of work, a 6 am gym session to “earn” happy hour, way too many dating apps, and one Sunday to debrief the carnage. Like brunch with your best friend, only recorded.',
+    lead: 'Some people have their lives together. And then there’s us. Five days of work, a 6 am gym session to “earn” happy hour, way too many dating apps, and one Sunday to debrief the carnage. Like Sunday brunch with your cousin, only recorded.',
     listenSpotify: '▶ Listen on Spotify',
     coverLabel: 'Wild Child podcast cover',
     coverLine1: 'THE SUNDAY RECOVERY SHOW',
@@ -37,9 +37,9 @@ export const en: Dict = {
     marquee: ['Gym at 6 am', 'Drinks at 7 pm', 'Regrets by noon', 'Crisis brunch', 'Ignored red flags', 'Sore legs', 'Broken heart'],
     story: {
       eyebrow: 'Who we are',
-      title1: 'Two best friends,',
+      title1: 'Two cousins,',
       titleAccent: 'zero plan',
-      lead: 'In a city full of people pretending they’re fine, we stopped pretending. We’re two best friends with serious jobs, lives that are anything but, and one sacred ritual: Sunday brunch, where we debrief everything. The workouts, the dates, the drinks, the texts sent at 2 am. One day we thought we should hit record. So here we are.',
+      lead: 'In a city full of people pretending they’re fine, we stopped pretending. Cousins by birth, sisters by choice, partners in every bad decision since the first family dinner. Serious jobs, lives that are anything but, and one sacred ritual: Sunday brunch, where we debrief everything. The workouts, the dates, the drinks, the texts sent at 2 am. One day we thought we should hit record. So here we are.',
       grindDays: 'Monday → Friday',
       grindTitle: 'The corporate version',
       grindText: 'Gym at 6 am, meeting at 9, professional smile until 6 pm. Nobody at the office suspects a thing.',
@@ -74,8 +74,8 @@ export const en: Dict = {
       eyebrow: 'The cast',
       title: 'Who’s talking?',
       list: [
-        { role: 'Same chaos, lazier', name: 'Maurane', text: 'The older one, so technically the voice of wisdom. Technically. Just as much of a mess as Marie, too lazy for anything except the gym at 6 am, where she goes all in so she’s earned a drink that night. Asks the big existential questions. Applies none of the answers.' },
-        { role: 'Serial dating & chaos', name: 'Marie', text: 'Three apps, two situationships and an ex who has “changed”. Turns every date into an episode and every episode into a scandal. Hosts The Swipe Report. Brings the chaos, free of charge.' },
+        { role: 'Same chaos, lazier', name: 'Maurane', text: 'The big cousin, so technically the voice of wisdom. Technically. Just as much of a mess as Marie, too lazy for anything except the gym at 6 am, where she goes all in so she’s earned a drink that night. Asks the big existential questions. Applies none of the answers.' },
+        { role: 'Serial dating & chaos', name: 'Marie', text: 'The little cousin, basically the little sister. Three apps, two situationships and an ex who has “changed”. Turns every date into an episode and every episode into a scandal. Hosts The Swipe Report. Brings the chaos, free of charge.' },
         { role: 'Guest stars', name: 'And you?', text: 'Coaches, doctors, bartenders, and mostly you. Send us your question and we’ll debrief it like it’s brunch. Anonymously if you’re embarrassed. We won’t judge. Much.' },
       ],
     },

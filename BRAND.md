@@ -63,10 +63,14 @@ clear roles, and total honesty about dating, drinking and bad decisions.
 
 ## Hosts
 
+Maurane and Marie are cousins, raised practically as sisters: Maurane is the
+big cousin, Marie the little one. Partners in every bad decision since the
+first family dinner.
+
 | Host | Role |
 |---|---|
-| **Maurane** | Same chaos, lazier. Just as much of a mess as Marie, only a bit older and too lazy for anything. Except the gym at 6 am, where she goes all in so she's earned a drink that night. Official Scoreboard referee. |
-| **Marie** | Serial dating & chaos. Three apps, two situationships and a rare talent for turning every date into an episode. Hosts *The Swipe Report*. |
+| **Maurane** | Same chaos, lazier. The big cousin. Just as much of a mess as Marie, only a bit older and too lazy for anything. Except the gym at 6 am, where she goes all in so she's earned a drink that night. Official Scoreboard referee. |
+| **Marie** | Serial dating & chaos. The little cousin, basically the little sister. Three apps, two situationships and a rare talent for turning every date into an episode. Hosts *The Swipe Report*. |
 
 ## Listener questions
 

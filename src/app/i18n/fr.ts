@@ -6,7 +6,7 @@ export const fr = {
     homeTitle: 'WILD CHILD · Le podcast de la récup du dimanche',
     shopTitle: 'Boutique · WILD CHILD',
     description:
-      'Deux potes, une salle à 6h, beaucoup trop d’applis de rencontre et un brunch du dimanche pour tout débriefer. Le podcast du chaos, du sarcasme et des verres qu’on pensait avoir mérités.',
+      'Deux cousines, une salle à 6h, beaucoup trop d’applis de rencontre et un brunch du dimanche pour tout débriefer. Le podcast du chaos, du sarcasme et des verres qu’on pensait avoir mérités.',
   },
   langName: 'Français',
   show: 'Le podcast de la récup du dimanche',
@@ -27,7 +27,7 @@ export const fr = {
   },
   home: {
     pill: 'Nouvel épisode chaque dimanche, à l’heure du brunch',
-    lead: 'Il y a les gens qui ont leur vie en main. Et puis il y a nous. Cinq jours de boulot, une salle à 6h pour « mériter » l’apéro, beaucoup trop d’applis de rencontre, et un dimanche pour débriefer le carnage. Comme un brunch entre potes, mais enregistré.',
+    lead: 'Il y a les gens qui ont leur vie en main. Et puis il y a nous. Cinq jours de boulot, une salle à 6h pour « mériter » l’apéro, beaucoup trop d’applis de rencontre, et un dimanche pour débriefer le carnage. Comme un brunch entre cousines, mais enregistré.',
     listenSpotify: '▶ Écouter sur Spotify',
     coverLabel: 'Pochette du podcast Wild Child',
     coverLine1: 'LA RÉCUP DU DIMANCHE',
@@ -35,9 +35,9 @@ export const fr = {
     marquee: ['Salle à 6h', 'Apéro à 19h', 'Regrets à midi', 'Brunch de crise', 'Red flags ignorés', 'Courbatures', 'Cœur en miettes'],
     story: {
       eyebrow: 'Qui on est',
-      title1: 'Deux potes,',
+      title1: 'Deux cousines,',
       titleAccent: 'zéro plan',
-      lead: 'Dans une ville pleine de gens qui font semblant d’aller bien, on a arrêté de faire semblant. On est deux potes avec des jobs sérieux, des vies qui ne le sont pas du tout, et un rituel sacré : le brunch du dimanche où on débriefe tout. Les séances, les dates, les verres, les textos envoyés à 2h du mat. Un jour on s’est dit qu’on devrait enregistrer. Voilà.',
+      lead: 'Dans une ville pleine de gens qui font semblant d’aller bien, on a arrêté de faire semblant. Cousines de naissance, sœurs de cœur, complices de chaque mauvaise décision depuis le premier repas de famille. Des jobs sérieux, des vies qui ne le sont pas du tout, et un rituel sacré : le brunch du dimanche où on débriefe tout. Les séances, les dates, les verres, les textos envoyés à 2h du mat. Un jour on s’est dit qu’on devrait enregistrer. Voilà.',
       grindDays: 'Lundi → Vendredi',
       grindTitle: 'La version corporate',
       grindText: 'Salle à 6h, réunion à 9h, sourire professionnel jusqu’à 18h. Personne au bureau ne se doute de rien.',
@@ -72,8 +72,8 @@ export const fr = {
       eyebrow: 'Le casting',
       title: 'Qui parle ?',
       list: [
-        { role: 'Même chaos, plus de flemme', name: 'Maurane', text: 'La plus vieille, donc techniquement la voix de la sagesse. Techniquement. Aussi paumée que Marie, avec la flemme de tout sauf de la salle à 6h, où elle se bute pour avoir le droit de picoler le soir. Pose les grandes questions existentielles. N’applique aucune réponse.' },
-        { role: 'Serial dating & chaos', name: 'Marie', text: 'Trois applis, deux situationships et un ex qui « a changé ». Transforme chaque date en épisode et chaque épisode en scandale. Présente le Swipe Report. Apporte le chaos, gratuitement.' },
+        { role: 'Même chaos, plus de flemme', name: 'Maurane', text: 'La grande cousine, donc techniquement la voix de la sagesse. Techniquement. Aussi paumée que Marie, avec la flemme de tout sauf de la salle à 6h, où elle se bute pour avoir le droit de picoler le soir. Pose les grandes questions existentielles. N’applique aucune réponse.' },
+        { role: 'Serial dating & chaos', name: 'Marie', text: 'La petite cousine, la petite sœur de cœur. Trois applis, deux situationships et un ex qui « a changé ». Transforme chaque date en épisode et chaque épisode en scandale. Présente le Swipe Report. Apporte le chaos, gratuitement.' },
         { role: 'Le casting invité', name: 'Et toi ?', text: 'Coachs, médecins, barmans, et surtout vous. Envoie ta question, on la débriefe comme au brunch. Anonymement si t’as honte. On ne juge pas. Enfin, un peu.' },
       ],
     },

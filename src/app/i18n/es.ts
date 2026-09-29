@@ -8,7 +8,7 @@ export const es: Dict = {
     homeTitle: 'WILD CHILD · El podcast de la resaca del domingo',
     shopTitle: 'Tienda · WILD CHILD',
     description:
-      'Un dúo inseparable, gym a las 6 de la mañana, demasiadas apps de citas y un brunch del domingo para analizarlo todo. El podcast del caos, el sarcasmo y las copas que creíamos merecer.',
+      'Dos primas inseparables, gym a las 6 de la mañana, demasiadas apps de citas y un brunch del domingo para analizarlo todo. El podcast del caos, el sarcasmo y las copas que creíamos merecer.',
   },
   langName: 'Español',
   show: 'El podcast de la resaca del domingo',
@@ -29,7 +29,7 @@ export const es: Dict = {
   },
   home: {
     pill: 'Nuevo episodio cada domingo, a la hora del brunch',
-    lead: 'Hay gente que tiene su vida bajo control. Y luego está este dúo. Cinco días currando, gym a las 6 para «ganarse» las cañas, demasiadas apps de citas y un domingo para analizar el desastre. Como un brunch con tu mejor amistad, pero grabado.',
+    lead: 'Hay gente que tiene su vida bajo control. Y luego estamos nosotras. Cinco días currando, gym a las 6 para «ganarse» las cañas, demasiadas apps de citas y un domingo para analizar el desastre. Como un brunch entre primas, pero grabado.',
     listenSpotify: '▶ Escuchar en Spotify',
     coverLabel: 'Portada del podcast Wild Child',
     coverLine1: 'LA RESACA DEL DOMINGO',
@@ -37,9 +37,9 @@ export const es: Dict = {
     marquee: ['Gym a las 6', 'Cañas a las 7', 'Arrepentimiento a mediodía', 'Brunch de crisis', 'Red flags ignoradas', 'Agujetas', 'Corazón roto'],
     story: {
       eyebrow: 'Quiénes somos',
-      title1: 'Un dúo,',
+      title1: 'Dos primas,',
       titleAccent: 'cero plan',
-      lead: 'En una ciudad llena de gente que finge estar bien, dejamos de fingir. Somos un dúo inseparable con curros serios, vidas que no lo son en absoluto y un ritual sagrado: el brunch del domingo, donde lo analizamos todo. Los entrenos, las citas, las copas, los mensajes enviados a las 2 de la mañana. Un día pensamos que deberíamos grabarlo. Y aquí estamos.',
+      lead: 'En una ciudad llena de gente que finge estar bien, dejamos de fingir. Primas de nacimiento, hermanas por elección y cómplices de cada mala decisión desde la primera comida familiar. Curros serios, vidas que no lo son en absoluto y un ritual sagrado: el brunch del domingo, donde lo analizamos todo. Los entrenos, las citas, las copas, los mensajes enviados a las 2 de la mañana. Un día pensamos que deberíamos grabarlo. Y aquí estamos.',
       grindDays: 'Lunes → Viernes',
       grindTitle: 'La versión corporativa',
       grindText: 'Gym a las 6, reunión a las 9, sonrisa profesional hasta las 18h. Nadie en la oficina sospecha nada.',
@@ -74,8 +74,8 @@ export const es: Dict = {
       eyebrow: 'El reparto',
       title: '¿Quién habla?',
       list: [
-        { role: 'Mismo caos, más pereza', name: 'Maurane', text: 'La mayor, así que técnicamente la voz de la sabiduría. Técnicamente. Igual de perdida que Marie, con pereza para todo menos para el gym a las 6, donde se mata para poder beber por la noche. Hace las grandes preguntas existenciales. No aplica ninguna respuesta.' },
-        { role: 'Citas en serie y caos', name: 'Marie', text: 'Tres apps, dos situationships y un ex que «ha cambiado». Convierte cada cita en un episodio y cada episodio en un escándalo. Presenta el Swipe Report. Trae el caos, gratis.' },
+        { role: 'Mismo caos, más pereza', name: 'Maurane', text: 'La prima mayor, así que técnicamente la voz de la sabiduría. Técnicamente. Igual de perdida que Marie, con pereza para todo menos para el gym a las 6, donde se mata para poder beber por la noche. Hace las grandes preguntas existenciales. No aplica ninguna respuesta.' },
+        { role: 'Citas en serie y caos', name: 'Marie', text: 'La prima pequeña, prácticamente la hermana pequeña. Tres apps, dos situationships y un ex que «ha cambiado». Convierte cada cita en un episodio y cada episodio en un escándalo. Presenta el Swipe Report. Trae el caos, gratis.' },
         { role: 'Estrellas invitadas', name: '¿Y tú?', text: 'Entrenadores, médicos, bartenders y, sobre todo, vosotros. Envía tu pregunta y la analizamos como en el brunch. De forma anónima si te da vergüenza. No juzgamos. Bueno, un poco.' },
       ],
     },
