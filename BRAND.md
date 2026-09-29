@@ -1,7 +1,7 @@
 # WILD CHILD · The Sunday Recovery Show
 
-> **Work hard. Go out too much. Regret it a little.**
-> FR : *Bosse dur. Sors trop. Regrette un peu.*
+> **Gym at 6 am. Drinks at 7 pm. Regrets by noon.**
+> FR : *Salle à 6h. Apéro à 19h. Regrets à midi.*
 
 ## The name
 
@@ -48,6 +48,11 @@ therapists, and definitely not role models. We're looking for balance out
 loud. Spoiler: we haven't found it.
 
 ### Tone of voice
+
+Think *Sex and the City* recorded at Sunday brunch: a narrator voice that
+wonders out loud ("and we couldn't help but wonder…"), two characters with
+clear roles, and total honesty about dating, drinking and bad decisions.
+
 
 - **Sarcastic, never mean.** We laugh at ourselves first.
 - **Natural.** We talk like we talk to friends, not like a wellness brand.
