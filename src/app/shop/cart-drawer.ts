@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, effect, inject, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../core/cart.service';
+import { SITE } from '../core/site.config';
 import { UiService } from '../core/ui.service';
 import { I18nService } from '../i18n/i18n.service';
 import { Mockup } from '../shared/mockup.component';
@@ -17,6 +18,7 @@ export class CartDrawer {
   protected readonly ui = inject(UiService);
   protected readonly i18n = inject(I18nService);
   protected readonly showDemo = signal(false);
+  protected readonly launched = SITE.launched;
   private readonly closeBtn = viewChild.required<ElementRef<HTMLButtonElement>>('closeBtn');
 
   constructor() {

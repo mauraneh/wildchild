@@ -22,7 +22,8 @@
         "en": "Two goals at five-a-side, one match on the app and a ghosting before Sunday lunch. Plus: the 3-drink rule, which we obviously ignored.",
         "es": "Dos goles en el fútbol 5, un match en la app y un ghosting antes de comer el domingo. Además: la regla de las 3 copas, que obviamente no cumplimos.",
         "pt": "Dois golos na futebolada, um match na app e um ghosting antes do almoço de domingo. E ainda: a regra dos 3 copos, que obviamente não cumprimos."
-      }
+      },
+      "guid": "sample"
     },
     {
       "n": 3,
@@ -46,7 +47,8 @@
         "en": "Can you run 21 km the morning after a birthday? We tested it so you don’t have to. Science and shame included.",
         "es": "¿Se pueden correr 21 km la mañana después de un cumpleaños? Lo probamos por ti. Ciencia y vergüenza incluidas.",
         "pt": "Dá para correr 21 km na manhã a seguir a um aniversário? Testámos por ti. Ciência e vergonha incluídas."
-      }
+      },
+      "guid": "sample"
     },
     {
       "n": 2,
@@ -69,7 +71,8 @@
         "en": "Sleep, electrolytes, meal prep and a phone detox: our 5-step plan to survive Monday. Tested once. Worked once.",
         "es": "Sueño, electrolitos, meal prep y détox del móvil: nuestro plan en 5 pasos para sobrevivir al lunes. Probado una vez. Funcionó una vez.",
         "pt": "Sono, eletrólitos, meal prep e détox do telemóvel: o nosso plano em 5 passos para sobreviver à segunda. Testado uma vez. Resultou uma vez."
-      }
+      },
+      "guid": "sample"
     },
     {
       "n": 1,
@@ -92,7 +95,8 @@
         "en": "Who we are, why Sunday, and the disaster of a brunch that gave us the idea for this podcast.",
         "es": "Quiénes somos, por qué el domingo y el brunch desastroso que nos dio la idea de este podcast.",
         "pt": "Quem somos, porquê o domingo e o brunch desastroso que nos deu a ideia para este podcast."
-      }
+      },
+      "guid": "sample"
     }
   ]
 }

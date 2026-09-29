@@ -6,7 +6,9 @@ Depuis l’admin, tu gères :
 
 - **Épisodes** : ajouter, modifier, dépublier (titre et description en FR, EN, ES, PT, date, durée, tags, lien Spotify pour « Écouter », lien YouTube pour « Voir »).
 - **Merch** : produits, prix affichés, tailles, IDs Shopify, photos, ordre d’affichage, mise en vente ou non.
-- **Réglages** : liens d’écoute et réseaux, e-mail, formulaires, domaine Shopify, seuil de livraison offerte.
+- **Réglages** : « Podcast lancé ? » (mode avant-lancement), flux RSS, liens d’écoute et réseaux, e-mail, formulaires, boutique Shopify, seuil de livraison offerte.
+
+Avec le flux RSS et la boutique Shopify renseignés, les épisodes et le merch arrivent **tout seuls** (voir `LAUNCH.md`). L’admin sert alors surtout aux traductions, aux liens YouTube et aux réglages.
 
 Chaque « Enregistrer » crée un commit sur GitHub. Les tests vérifient le contenu, puis le site se met à jour tout seul en 1 à 2 minutes.
 

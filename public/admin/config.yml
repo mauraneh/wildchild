@@ -88,6 +88,7 @@ collections:
               - { <<: *link, name: youtube, label: 'Lien YouTube de l’épisode (bouton Voir)' }
               - { <<: *short, name: title, label: Titre }
               - { <<: *long, name: desc, label: Description }
+              - { name: guid, label: 'Identifiant technique (rempli automatiquement, ne pas modifier)', widget: string, required: false, default: '' }
 
   - name: merch
     label: Merch
@@ -128,6 +129,8 @@ collections:
               - { <<: *hex, name: color, label: 'Dessin automatique : couleur du produit' }
               - { <<: *hex, name: ink, label: 'Dessin automatique : couleur du texte' }
               - { name: print, label: 'Dessin automatique : texte imprimé (24 caractères max)', widget: string, pattern: ['^.{1,24}$', '24 caractères maximum'] }
+              - { name: sample, label: 'Produit de démo (masqué automatiquement quand la boutique Shopify est connectée)', widget: boolean, default: false, required: false }
+              - { name: synced, label: 'Importé depuis Shopify (automatique)', widget: boolean, default: false, required: false }
 
   - name: settings
     label: Réglages
@@ -138,6 +141,12 @@ collections:
         file: src/content/settings.json
         format: json
         fields:
+          - { name: launched, label: 'Podcast lancé ? (décoché = mode avant-lancement : teaser, « Préviens-moi », shop en aperçu)', widget: boolean, default: false }
+          - name: podcast
+            label: Podcast
+            widget: object
+            fields:
+              - { <<: *link, name: rssFeed, label: 'Flux RSS du podcast (donné par ton hébergeur). Rempli = nouveaux épisodes importés tout seuls chaque heure' }
           - { name: email, label: E-mail de contact, widget: string, pattern: ['^[^\s@"<>]+@[^\s@"<>]+\.[^\s@"<>]+$', 'E-mail invalide'] }
           - name: listen
             label: Où écouter
@@ -162,4 +171,5 @@ collections:
             fields:
               - { name: domain, label: 'Domaine Shopify (ex. wildchild.myshopify.com). Vide = mode démo', widget: string, required: false, pattern: ['^([a-z0-9-]+\.myshopify\.com)?$', 'Doit finir par .myshopify.com'] }
               - { name: currency, label: 'Devise (code à 3 lettres)', widget: string, pattern: ['^[A-Z]{3}$', 'Ex. EUR'] }
+              - { name: storefrontToken, label: 'Jeton Storefront API Shopify (public, lecture seule). Rempli + domaine = produits importés tout seuls chaque heure', widget: string, required: false, pattern: ['^([0-9a-f]{32})?$', '32 caractères (chiffres et lettres a-f)'] }
               - { name: freeShippingFrom, label: 'Livraison offerte à partir de (€)', widget: number, value_type: int, min: 0 }

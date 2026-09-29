@@ -29,5 +29,9 @@
   }
   <a routerLink="/shop" (click)="ui.menuOpen.set(false)">{{ i18n.t().nav.shop }}</a>
   <app-lang-switch class="lang-mobile" />
-  <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">{{ i18n.t().nav.listenNow }}</a>
+  @if (site.launched) {
+    <a class="btn btn-primary" [href]="site.listen.spotify" target="_blank" rel="noopener">{{ i18n.t().nav.listenNow }}</a>
+  } @else {
+    <a class="btn btn-primary" routerLink="/" fragment="newsletter" (click)="ui.menuOpen.set(false)">{{ i18n.t().prelaunch.heroCta }}</a>
+  }
 </nav>

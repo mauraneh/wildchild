@@ -50,7 +50,15 @@
       <div class="total-row"><span>{{ t.cart.subtotal }}</span><span>{{ cart.total() | money }}</span></div>
       <p class="fine">{{ t.cart.fine }}</p>
       <button class="btn btn-grad btn-block" type="button" (click)="checkout()">{{ t.cart.checkout }}</button>
-      <p class="demo-note" role="status">{{ showDemo() ? t.cart.demo : '' }}</p>
+      <p class="demo-note" role="status">
+        @if (showDemo()) {
+          @if (launched) {
+            {{ t.cart.demo }}
+          } @else {
+            {{ t.prelaunch.checkoutSoon }} <a routerLink="/" fragment="newsletter" (click)="ui.closeAll()">{{ t.prelaunch.notify }} →</a>
+          }
+        }
+      </p>
     </div>
   }
 </aside>

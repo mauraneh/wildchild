@@ -6,6 +6,7 @@ hangovers and how to keep it all in balance after a week at work.
 - **Brand, name & storytelling:** [`BRAND.md`](BRAND.md)
 - **Shop / dropshipping setup:** [`SHOP_SETUP.md`](SHOP_SETUP.md)
 - **Admin (episodes, merch, settings) & security:** [`ADMIN.md`](ADMIN.md), at `/admin`
+- **Launch checklist & costs (pre-launch mode, RSS + Shopify auto-sync):** [`LAUNCH.md`](LAUNCH.md)
 
 ## Stack
 

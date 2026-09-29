@@ -388,6 +388,18 @@ p { margin: 0 0 1em; }
   .footer-grid > :first-child { grid-column: auto; }
 }
 
+/* ---------- Pre-launch ---------- */
+.coming-soon {
+  text-align: center; padding: 40px 20px; border-radius: 28px; border: 1px dashed rgba(255, 248, 238, .25);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 61, 127, .18), transparent 60%), var(--ink-2);
+}
+.coming-soon .lead { margin: 0 auto 24px; }
+.shop-banner {
+  margin: 18px 0 0; padding: 14px 16px; border-radius: var(--radius-sm); background: rgba(198, 244, 50, .1);
+  color: var(--cream); font-weight: 600; font-size: .92rem;
+}
+.shop-banner a, .demo-note a { color: var(--lime); font-weight: 800; }
+
 /* ---------- Language switch ---------- */
 .lang-switch { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--ink-3); border-radius: 999px; }
 .lang-switch button {

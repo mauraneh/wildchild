@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Category, SITE } from '../../core/site.config';
 import { UiService } from '../../core/ui.service';
 import { I18nService } from '../../i18n/i18n.service';
@@ -9,7 +10,7 @@ type Filter = Category | 'all';
 
 @Component({
   selector: 'app-shop',
-  imports: [Mockup, MoneyPipe],
+  imports: [Mockup, MoneyPipe, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './shop.html',
 })
@@ -17,6 +18,7 @@ export class Shop {
   protected readonly ui = inject(UiService);
   protected readonly i18n = inject(I18nService);
   protected readonly freeShippingFrom = SITE.shop.freeShippingFrom;
+  protected readonly launched = SITE.launched;
   protected readonly filters: Filter[] = ['all', 'apparel', 'accessories', 'home'];
   protected readonly filter = signal<Filter>('all');
   protected readonly products = computed(() =>

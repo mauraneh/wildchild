@@ -32,12 +32,16 @@ export interface Product {
   color: string;
   ink: string;
   print: string;
-  /** Optional photo (path in public/uploads). Empty = SVG mockup. */
+  /** Optional photo: uploaded in the admin (uploads/…) or imported from Shopify (cdn.shopify.com). Empty = SVG mockup. */
   image: string;
   name: Localized;
   badge: Localized;
   description: Localized;
   variants: Variant[];
+  /** Demo product shipped with the site: hidden automatically once Shopify sync imports real products. */
+  sample?: boolean;
+  /** Imported from Shopify by the sync job. */
+  synced?: boolean;
 }
 
 export interface Episode {
@@ -51,15 +55,20 @@ export interface Episode {
   youtube: string;
   title: Localized;
   desc: Localized;
+  /** RSS guid for episodes imported from the podcast feed, "sample" for demo episodes, "" for manual ones. */
+  guid: string;
 }
 
 export interface Settings {
+  /** false = pre-launch mode: teaser instead of episodes, shop in preview. */
+  launched: boolean;
+  podcast: { rssFeed: string };
   email: string;
   listen: Record<'spotify' | 'apple' | 'youtube' | 'deezer', string>;
   social: Record<'instagram' | 'tiktok' | 'youtube', string>;
   newsletterEndpoint: string;
   questionsEndpoint: string;
-  shop: { domain: string; currency: string; freeShippingFrom: number };
+  shop: { domain: string; currency: string; freeShippingFrom: number; storefrontToken: string };
 }
 
 export interface SiteConfig extends Settings {
@@ -75,7 +84,9 @@ export const SAFE_LINK = /^(#|https:\/\/[^\s"'<>]+)?$/;
 export const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 export const SHOPIFY_ID = /^\d*$/;
 export const SHOPIFY_DOMAIN = /^([a-z0-9-]+\.myshopify\.com)?$/;
-export const IMAGE_PATH = /^(\/?uploads\/[\w.-]+\.(jpe?g|png|webp|avif))?$/i;
+export const IMAGE_PATH = /^((\/?uploads\/[\w.-]+\.(jpe?g|png|webp|avif))|(https:\/\/cdn\.shopify\.com\/[^\s"'<>()]+))?$/i;
+/** Storefront API tokens are public, read-only by design (32 hex chars). */
+export const STOREFRONT_TOKEN = /^([0-9a-f]{32})?$/;
 export const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const LANGS: ContentLang[] = ['fr', 'en', 'es', 'pt'];
 
@@ -91,9 +102,9 @@ export function productProblems(p: Product): string[] {
   if (!(typeof p.price === 'number' && p.price > 0 && p.price < 10000)) e.push(`${p.id}: invalid price`);
   if (!HEX_COLOR.test(p.color) || !HEX_COLOR.test(p.ink)) e.push(`${p.id}: colors must be #rrggbb`);
   if (typeof p.print !== 'string' || p.print.length > 24) e.push(`${p.id}: print text max 24 characters`);
-  if (!IMAGE_PATH.test(p.image ?? '')) e.push(`${p.id}: image must be an uploaded jpg/png/webp`);
+  if (!IMAGE_PATH.test(p.image ?? '')) e.push(`${p.id}: image must be an uploaded jpg/png/webp or a Shopify image`);
   if (!isLocalized(p.name) || !isLocalized(p.badge) || !isLocalized(p.description)) e.push(`${p.id}: texts needed in fr/en/es/pt`);
-  else if (LANGS.some((l) => !p.name[l].trim())) e.push(`${p.id}: name missing in a language`);
+  else if (!p.name.fr.trim()) e.push(`${p.id}: French name missing`);
   if (!Array.isArray(p.variants) || !p.variants.length) e.push(`${p.id}: at least one size`);
   else if (p.variants.some((v) => !v.size?.trim() || !SHOPIFY_ID.test(v.shopifyId ?? ''))) e.push(`${p.id}: invalid size or Shopify ID`);
   return e;
@@ -106,14 +117,17 @@ export function episodeProblems(ep: Episode): string[] {
   if (!ISO_DATE.test(ep.date) || Number.isNaN(Date.parse(ep.date))) e.push(`${id}: date must be YYYY-MM-DD`);
   if (!SAFE_LINK.test(ep.spotify ?? '') || !SAFE_LINK.test(ep.youtube ?? '')) e.push(`${id}: links must start with https://`);
   if (!isLocalized(ep.title) || !isLocalized(ep.desc)) e.push(`${id}: texts needed in fr/en/es/pt`);
-  else if (LANGS.some((l) => !ep.title[l].trim())) e.push(`${id}: title missing in a language`);
+  else if (!ep.title.fr.trim()) e.push(`${id}: French title missing`);
+  if (typeof ep.guid !== 'string' || ep.guid.length > 300) e.push(`${id}: invalid guid`);
   if (!Array.isArray(ep.tags)) e.push(`${id}: tags must be a list`);
   return e;
 }
 
 export function settingsProblems(s: Settings): string[] {
   const e: string[] = [];
-  const links = [...Object.values(s.listen), ...Object.values(s.social), s.newsletterEndpoint, s.questionsEndpoint];
+  const links = [...Object.values(s.listen), ...Object.values(s.social), s.newsletterEndpoint, s.questionsEndpoint, s.podcast?.rssFeed];
+  if (typeof s.launched !== 'boolean') e.push('settings: launched must be true or false');
+  if (!STOREFRONT_TOKEN.test(s.shop.storefrontToken ?? '')) e.push('settings: Storefront token must be 32 hex characters');
   if (links.some((l) => !SAFE_LINK.test(l ?? ''))) e.push('settings: links must start with https://');
   if (!/^[^\s@"<>]+@[^\s@"<>]+\.[^\s@"<>]+$/.test(s.email)) e.push('settings: invalid e-mail');
   if (!SHOPIFY_DOMAIN.test(s.shop.domain)) e.push('settings: Shopify domain must look like store.myshopify.com');
@@ -132,7 +146,7 @@ export const RAW_CONTENT = { settings, products: allProducts, episodes: allEpiso
 
 // Defence in depth: anything invalid is dropped instead of rendered.
 const safeSettings: Settings = settingsProblems(settings).length
-  ? { ...settings, listen: { spotify: '#', apple: '#', youtube: '#', deezer: '#' }, social: { instagram: '#', tiktok: '#', youtube: '#' }, newsletterEndpoint: '', questionsEndpoint: '', shop: { ...settings.shop, domain: '' } }
+  ? { ...settings, launched: false, podcast: { rssFeed: '' }, listen: { spotify: '#', apple: '#', youtube: '#', deezer: '#' }, social: { instagram: '#', tiktok: '#', youtube: '#' }, newsletterEndpoint: '', questionsEndpoint: '', shop: { ...settings.shop, domain: '', storefrontToken: '' } }
   : settings;
 
 export const SITE: SiteConfig = {

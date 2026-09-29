@@ -10,6 +10,9 @@
       <div class="perk"><b>✦</b> {{ t.shop.perks[2] }} {{ freeShippingFrom | money }}</div>
       <div class="perk"><b>✦</b> {{ t.shop.perks[3] }}</div>
     </div>
+    @if (!launched) {
+      <p class="shop-banner">🔔 {{ t.prelaunch.shopBanner }} <a routerLink="/" fragment="newsletter">{{ t.prelaunch.notify }} →</a></p>
+    }
   </div>
 </section>
 

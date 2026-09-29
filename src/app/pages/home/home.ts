@@ -14,6 +14,8 @@ import { AskQuestion } from './ask-question';
 export class Home {
   protected readonly i18n = inject(I18nService);
   protected readonly site = SITE;
+  /** Pre-launch (or no episode yet): a teaser + waiting list instead of the episode list. */
+  protected readonly showEpisodes = SITE.launched && SITE.episodes.length > 0;
   protected readonly avatars = [
     { icon: '🏃', color: 'var(--lime)' },
     { icon: '💘', color: 'var(--pink)' },

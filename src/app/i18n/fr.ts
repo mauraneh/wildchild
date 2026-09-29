@@ -171,6 +171,16 @@ export const fr = {
     checkout: 'Commander →',
     demo: 'Mode démo : ajoute le domaine Shopify et les IDs de variantes dans l’admin (Réglages et Merch) pour prendre de vraies commandes.',
   },
+  prelaunch: {
+    pill: 'Premier épisode bientôt. On finit de cuver.',
+    heroCta: '🔔 Préviens-moi au lancement',
+    episodesTitle1: 'Premier épisode,',
+    episodesTitle2: 'très bientôt.',
+    episodesText: 'On enregistre, on coupe les passages trop honteux, on garde les autres. Laisse ton e-mail et tu seras au courant avant tout le monde. Promis, pas de spam : on a la flemme.',
+    notify: 'Préviens-moi',
+    shopBanner: 'Le shop ouvre au lancement du podcast. Tu peux déjà faire ton repérage.',
+    checkoutSoon: 'Le shop ouvre au lancement. Laisse ton e-mail, on te prévient en premier.',
+  },
   footer: {
     listen: 'Écouter',
     follow: 'Suivre',

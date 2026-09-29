@@ -1,4 +1,8 @@
 {
+  "launched": false,
+  "podcast": {
+    "rssFeed": ""
+  },
   "email": "hello@wildchildpodcast.com",
   "listen": {
     "spotify": "#",
@@ -16,6 +20,7 @@
   "shop": {
     "domain": "",
     "currency": "EUR",
-    "freeShippingFrom": 60
+    "freeShippingFrom": 60,
+    "storefrontToken": ""
   }
 }

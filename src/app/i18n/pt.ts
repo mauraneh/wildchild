@@ -173,6 +173,16 @@ export const pt: Dict = {
     checkout: 'Finalizar compra →',
     demo: 'Modo demo: adiciona o domínio Shopify e os IDs das variantes no admin (Definições e Merch) para receber encomendas reais.',
   },
+  prelaunch: {
+    pill: 'Primeiro episódio muito em breve. Ainda estamos a recuperar.',
+    heroCta: '🔔 Avisa-me no lançamento',
+    episodesTitle1: 'Primeiro episódio,',
+    episodesTitle2: 'muito em breve.',
+    episodesText: 'Estamos a gravar, a cortar as partes mais embaraçosas e a guardar o resto. Deixa o teu e-mail e sabes antes de toda a gente. Sem spam, temos preguiça.',
+    notify: 'Avisa-me',
+    shopBanner: 'A loja abre com o lançamento do podcast. Já podes ir espreitando.',
+    checkoutSoon: 'A loja abre no lançamento. Deixa o teu e-mail e avisamos-te primeiro.',
+  },
   footer: {
     listen: 'Ouvir',
     follow: 'Seguir',

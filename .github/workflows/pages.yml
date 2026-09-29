@@ -3,20 +3,25 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main, claude/podcast-dropship-site-0vkyr6]
+  # Every hour: import new episodes (RSS) and merch (Shopify). Deploys only if something changed.
+  schedule:
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # only to commit synced content back to the repo
+    outputs:
+      deploy: ${{ steps.decide.outputs.deploy }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,19 +31,53 @@ jobs:
       - run: npm ci
       - name: Security audit (production dependencies)
         run: npm audit --omit=dev --audit-level=high
-      - run: npm test -- --watch=false
+
+      - name: Sync episodes (RSS) and merch (Shopify)
+        id: sync
+        run: node scripts/sync-content.mts
+
+      - name: Decide whether to deploy
+        id: decide
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ] || [ "${{ steps.sync.outputs.changed }}" = "true" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Tests validate all content (including freshly synced content) before anything goes live.
+      - if: steps.decide.outputs.deploy == 'true'
+        run: npm test -- --watch=false
+
+      - name: Commit synced content
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          git config user.name "wildchild-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content
+          git commit -m "sync: new episodes / merch from RSS and Shopify"
+          git push origin HEAD:${{ github.ref_name }}
+
       - name: Build
+        if: steps.decide.outputs.deploy == 'true'
         run: npx ng build --base-href "/${{ github.event.repository.name }}/"
       # SPA fallback so deep links like /shop work on GitHub Pages
-      - run: cp dist/wildchild/browser/index.html dist/wildchild/browser/404.html
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - if: steps.decide.outputs.deploy == 'true'
+        run: cp dist/wildchild/browser/index.html dist/wildchild/browser/404.html
+      - if: steps.decide.outputs.deploy == 'true'
+        uses: actions/configure-pages@v5
+      - if: steps.decide.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/wildchild/browser
 
   deploy:
     needs: build
+    if: needs.build.outputs.deploy == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -49,7 +49,9 @@
           "size": "XXL",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "recovery-hoodie",
@@ -100,7 +102,9 @@
           "size": "XXL",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "wild-child-cap",
@@ -135,7 +139,9 @@
           "size": "One size",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "monday-reset-mug",
@@ -174,7 +180,9 @@
           "size": "15oz",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "hydrate-bottle",
@@ -209,7 +217,9 @@
           "size": "750ml",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "swipe-report-tote",
@@ -244,7 +254,9 @@
           "size": "One size",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "scoreboard-tee",
@@ -291,7 +303,9 @@
           "size": "XL",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     },
     {
       "id": "sunday-hoodie",
@@ -338,7 +352,9 @@
           "size": "XL",
           "shopifyId": ""
         }
-      ]
+      ],
+      "sample": true,
+      "synced": false
     }
   ]
 }
