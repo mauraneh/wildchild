@@ -6,7 +6,7 @@ export const fr = {
     homeTitle: 'WILD CHILD · Le podcast de la récup du dimanche',
     shopTitle: 'Boutique · WILD CHILD',
     description:
-      'Deux cousines, une salle à 6h, beaucoup trop d’applis de rencontre et un brunch du dimanche pour tout débriefer. Le podcast du chaos, du sarcasme et des verres qu’on pensait avoir mérités.',
+      'Deux sœurs de cœur, une salle à 6h, beaucoup trop d’applis de rencontre et un brunch du dimanche pour tout débriefer. Le podcast du chaos, du sarcasme et des verres qu’on pensait avoir mérités.',
   },
   langName: 'Français',
   show: 'Le podcast de la récup du dimanche',
@@ -27,7 +27,7 @@ export const fr = {
   },
   home: {
     pill: 'Nouvel épisode chaque dimanche, dès qu’on a retrouvé nos lunettes de soleil',
-    lead: 'Du lundi au vendredi, on est des adultes fonctionnelles. Le week-end, beaucoup moins. Salle à 6h pour « mériter » l’apéro, trop d’applis, pas assez de limites, et un dimanche pour constater les dégâts. C’est un brunch entre cousines. Sauf que tout le monde écoute.',
+    lead: 'Du lundi au vendredi, on est des adultes fonctionnelles. Le week-end, beaucoup moins. Salle à 6h pour « mériter » l’apéro, trop d’applis, pas assez de limites, et un dimanche pour constater les dégâts. C’est un brunch entre copines. Sauf que tout le monde écoute.',
     listenSpotify: '▶ Écouter sur Spotify',
     coverLabel: 'Pochette du podcast Wild Child',
     coverLine1: 'LA RÉCUP DU DIMANCHE',
@@ -35,9 +35,9 @@ export const fr = {
     marquee: ['Salle à 6h', 'Apéro à 19h', 'Regrets à midi', 'Brunch de crise', 'Red flags ignorés', 'Dignité facultative', 'Cœur en miettes'],
     story: {
       eyebrow: 'Qui on est',
-      title1: 'Deux cousines,',
+      title1: 'Sœurs de cœur,',
       titleAccent: 'zéro plan',
-      lead: 'Cousines de naissance, sœurs de cœur, complices de chaque mauvaise décision depuis le premier repas de famille. Aujourd’hui : deux jobs sérieux, deux vies qui ne le sont pas du tout, et un rituel sacré. Le brunch du dimanche, où on dissèque la semaine. Les séances, les dates, les verres, et le texto de 2h du mat qu’on aurait dû laisser en brouillon. Un jour, on s’est dit que c’était trop bon pour rester entre nous. Tant pis pour notre réputation.',
+      lead: 'Pas de sang en commun, juste un casier judiciaire émotionnel très chargé. Complices de chaque mauvaise décision depuis toujours. Aujourd’hui : deux jobs sérieux, deux vies qui ne le sont pas du tout, et un rituel sacré. Le brunch du dimanche, où on dissèque la semaine. Les séances, les dates, les verres, et le texto de 2h du mat qu’on aurait dû laisser en brouillon. Un jour, on s’est dit que c’était trop bon pour rester entre nous. Tant pis pour notre réputation.',
       grindDays: 'Lundi → Vendredi',
       grindTitle: 'La version LinkedIn',
       grindText: 'Salle à 6h, réunion à 9h, sourire corporate jusqu’à 18h. Au bureau, on passe pour des femmes équilibrées. On a un talent fou.',
@@ -72,8 +72,8 @@ export const fr = {
       eyebrow: 'Le casting',
       title: 'Qui parle ?',
       list: [
-        { role: 'Même chaos, plus de flemme', name: 'Maurane', text: 'La grande cousine. L’expérience, les cernes, et aucune leçon retenue. Se lève à 5h45 pour la salle, se couche à 2h après l’apéro, et appelle ça « de la discipline ». Donne d’excellents conseils. Surtout aux autres.' },
-        { role: 'Serial dating & chaos', name: 'Marie', text: 'La petite cousine, la petite sœur de cœur. Trois applis, deux situationships, un ex qui « a changé » (non). Tombe amoureuse le vendredi, emménage mentalement le samedi, ghoste le dimanche. Présente le Swipe Report, et en fournit l’essentiel du contenu.' },
+        { role: 'Même chaos, plus de flemme', name: 'Maurane', text: 'La grande sœur. L’expérience, les cernes, et aucune leçon retenue. Se lève à 5h45 pour la salle, se couche à 2h après l’apéro, et appelle ça « de la discipline ». Donne d’excellents conseils. Surtout aux autres.' },
+        { role: 'Serial dating & chaos', name: 'Marie', text: 'La petite sœur de cœur. Trois applis, deux situationships, un ex qui « a changé » (non). Tombe amoureuse le vendredi, emménage mentalement le samedi, ghoste le dimanche. Présente le Swipe Report, et en fournit l’essentiel du contenu.' },
         { role: 'Le casting invité', name: 'Et toi ?', text: 'Coachs, médecins, barmans, et surtout vous. Envoie ta galère, on la débriefe au brunch. Anonymement si t’as honte. On ne juge pas. Enfin, pas en face.' },
       ],
     },

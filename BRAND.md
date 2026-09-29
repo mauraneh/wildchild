@@ -63,14 +63,13 @@ clear roles, and total honesty about dating, drinking and bad decisions.
 
 ## Hosts
 
-Maurane and Marie are cousins, raised practically as sisters: Maurane is the
-big cousin, Marie the little one. Partners in every bad decision since the
-first family dinner.
+Maurane and Marie are sisters by choice: Maurane is the big sister, Marie
+the little one. Partners in every bad decision since forever.
 
 | Host | Role |
 |---|---|
-| **Maurane** | Same chaos, lazier. The big cousin. The experience, the dark circles and zero lessons learned. Up at 5:45 for the gym, in bed at 2 after drinks, and calls it "discipline". Gives excellent advice. Mostly to other people. |
-| **Marie** | Serial dating & chaos. The little cousin, basically the little sister. Three apps, two situationships, one ex who has "changed" (spoiler: no). Falls in love on Friday, mentally moves in on Saturday, ghosts on Sunday. Hosts *The Swipe Report* and supplies most of its content. |
+| **Maurane** | Same chaos, lazier. The big sister. The experience, the dark circles and zero lessons learned. Up at 5:45 for the gym, in bed at 2 after drinks, and calls it "discipline". Gives excellent advice. Mostly to other people. |
+| **Marie** | Serial dating & chaos. The little sister, by choice. Three apps, two situationships, one ex who has "changed" (spoiler: no). Falls in love on Friday, mentally moves in on Saturday, ghosts on Sunday. Hosts *The Swipe Report* and supplies most of its content. |
 
 ## Listener questions
 

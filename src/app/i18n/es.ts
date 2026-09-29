@@ -8,7 +8,7 @@ export const es: Dict = {
     homeTitle: 'WILD CHILD · El podcast de la resaca del domingo',
     shopTitle: 'Tienda · WILD CHILD',
     description:
-      'Dos primas inseparables, gym a las 6 de la mañana, demasiadas apps de citas y un brunch del domingo para analizarlo todo. El podcast del caos, el sarcasmo y las copas que creíamos merecer.',
+      'Dos hermanas de corazón, gym a las 6 de la mañana, demasiadas apps de citas y un brunch del domingo para analizarlo todo. El podcast del caos, el sarcasmo y las copas que creíamos merecer.',
   },
   langName: 'Español',
   show: 'El podcast de la resaca del domingo',
@@ -29,7 +29,7 @@ export const es: Dict = {
   },
   home: {
     pill: 'Nuevo episodio cada domingo, en cuanto encontramos las gafas de sol',
-    lead: 'De lunes a viernes somos adultas funcionales. El finde, bastante menos. Gym a las 6 para «ganarnos» las cañas, demasiadas apps, pocos límites y un domingo para evaluar los daños. Es un brunch entre primas. Solo que nos escucha todo el mundo.',
+    lead: 'De lunes a viernes somos adultas funcionales. El finde, bastante menos. Gym a las 6 para «ganarnos» las cañas, demasiadas apps, pocos límites y un domingo para evaluar los daños. Es un brunch entre amigas. Solo que nos escucha todo el mundo.',
     listenSpotify: '▶ Escuchar en Spotify',
     coverLabel: 'Portada del podcast Wild Child',
     coverLine1: 'LA RESACA DEL DOMINGO',
@@ -37,9 +37,9 @@ export const es: Dict = {
     marquee: ['Gym a las 6', 'Cañas a las 7', 'Arrepentimiento a mediodía', 'Brunch de crisis', 'Red flags ignoradas', 'Dignidad opcional', 'Corazón roto'],
     story: {
       eyebrow: 'Quiénes somos',
-      title1: 'Dos primas,',
+      title1: 'Hermanas de corazón,',
       titleAccent: 'cero plan',
-      lead: 'Primas de nacimiento, hermanas por elección y cómplices de cada mala decisión desde la primera comida familiar. Hoy: dos curros serios, dos vidas que no lo son en absoluto y un ritual sagrado. El brunch del domingo, donde diseccionamos la semana. Los entrenos, las citas, las copas y el mensaje de las 2 de la mañana que debería haberse quedado en borradores. Un día pensamos que era demasiado bueno para quedárnoslo. Adiós, reputación.',
+      lead: 'No compartimos sangre, solo un historial emocional muy cargado. Cómplices de cada mala decisión desde siempre. Hoy: dos curros serios, dos vidas que no lo son en absoluto y un ritual sagrado. El brunch del domingo, donde diseccionamos la semana. Los entrenos, las citas, las copas y el mensaje de las 2 de la mañana que debería haberse quedado en borradores. Un día pensamos que era demasiado bueno para quedárnoslo. Adiós, reputación.',
       grindDays: 'Lunes → Viernes',
       grindTitle: 'La versión LinkedIn',
       grindText: 'Gym a las 6, reunión a las 9, sonrisa corporativa hasta las 18h. En la oficina pasamos por mujeres equilibradas. Tenemos un talento increíble.',
@@ -74,8 +74,8 @@ export const es: Dict = {
       eyebrow: 'El reparto',
       title: '¿Quién habla?',
       list: [
-        { role: 'Mismo caos, más pereza', name: 'Maurane', text: 'La prima mayor. La experiencia, las ojeras y ninguna lección aprendida. Se levanta a las 5:45 para el gym, se acuesta a las 2 después de las cañas y lo llama «disciplina». Da consejos excelentes. Sobre todo a los demás.' },
-        { role: 'Citas en serie y caos', name: 'Marie', text: 'La prima pequeña, prácticamente la hermana pequeña. Tres apps, dos situationships y un ex que «ha cambiado» (spoiler: no). Se enamora el viernes, se muda mentalmente el sábado y hace ghosting el domingo. Presenta el Swipe Report, y aporta casi todo su contenido.' },
+        { role: 'Mismo caos, más pereza', name: 'Maurane', text: 'La hermana mayor. La experiencia, las ojeras y ninguna lección aprendida. Se levanta a las 5:45 para el gym, se acuesta a las 2 después de las cañas y lo llama «disciplina». Da consejos excelentes. Sobre todo a los demás.' },
+        { role: 'Citas en serie y caos', name: 'Marie', text: 'La hermana pequeña, por elección. Tres apps, dos situationships y un ex que «ha cambiado» (spoiler: no). Se enamora el viernes, se muda mentalmente el sábado y hace ghosting el domingo. Presenta el Swipe Report, y aporta casi todo su contenido.' },
         { role: 'Estrellas invitadas', name: '¿Y tú?', text: 'Entrenadores, médicos, bartenders y, sobre todo, vosotros. Envía tu drama y lo analizamos en el brunch. De forma anónima si te da vergüenza. No juzgamos. No a la cara.' },
       ],
     },
