@@ -23,7 +23,7 @@
   "devDependencies": {
     "@angular/build": "^22.2.0",
     "@angular/cli": "^22.2.0",
-    "@angular/compiler-cli": "^22.2.0",
+    "@angular/compiler-cli": "^22.2.1",
     "@sveltia/cms": "0.223.0",
     "fast-xml-parser": "5.11.2",
     "jsdom": "^30.0.0",
